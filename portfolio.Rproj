@@ -1,9 +1,9 @@
 Version: 1.0
 ProjectId: 9e1c921a-9f70-4a84-8f16-329e6d25987a
 
-RestoreWorkspace: No
-SaveWorkspace: No
-AlwaysSaveHistory: No
+RestoreWorkspace: Yes
+SaveWorkspace: Yes
+AlwaysSaveHistory: Yes
 
 EnableCodeIndexing: Yes
 UseSpacesForTab: Yes
@@ -14,3 +14,7 @@ RnwWeave: knitr
 LaTeX: pdfLaTeX
 
 AutoAppendNewline: Yes
+
+ZoteroLibraries: "My Library"
+
+ProjectName: portfolio.Rproj
