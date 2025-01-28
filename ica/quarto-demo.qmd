@@ -37,17 +37,17 @@ In the toolbar at the top of this document, **Render** the .qmd file into a .htm
 
 Toggling between the .qmd and .html files, explain the purpose of the following features in the .qmd file:        
 
-`*` = 
+`*` = italicizes the text 
 
-`**` = 
+`**` = bolds the text
 
-`#` =
+`#` = makes the text a headline
 
-`-` =
+`-` = differentiates the title and formatting code from the content of the website 
 
-`\` = 
+`\` = creates space 
 
-`![](url)` = 
+`![](url)` = inserts the image of the url 
 
 
 
@@ -114,7 +114,7 @@ Answer: Both!
 ```{r}
 seq(from = 10, to = 10, length = 3)
 four_tens<-seq(from = 10, to = 10, length = 3)
-four_tens
+sum(four_tens)
 ```
 
 
@@ -138,7 +138,7 @@ Put the code in a chunk and fix it.
 ```{r}
 rep(x = 1, times = 10)
 seq(from = 100, to = 1000, length = 20)
-NumberofStudents<-27
+numberofStudents<-27
 ```
 
 
