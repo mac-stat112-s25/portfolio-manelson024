@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>8&nbsp; Bivariate Viz – COMP/STAT112 Notebook</title>
+<title>9&nbsp; Bivariate Viz – COMP/STAT112 Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -75,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -102,35 +97,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../style/custom.css">
+}</script><link rel="stylesheet" href="../style/custom.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/quarto-demo.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-bi.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/quarto-demo.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-bi.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Molly Nelson</a> 
         <div class="sidebar-tools-main">
@@ -150,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -164,8 +149,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bw/bw-uni.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span></a>
@@ -196,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -205,8 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/quarto-demo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">My first Quarto document</span></span></a>
@@ -214,44 +199,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../ica/ica-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../ica/ica-uni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-bi.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-multi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-spatial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ica/ica-effective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ica-effective</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#exercise-0-review" id="toc-exercise-0-review" class="nav-link active" data-scroll-target="#exercise-0-review"><span class="header-section-number">10</span> Exercise 0: Review</a></li>
+  <li><a href="#exercise-1-quantitative-vs-quantitative-intuition-check" id="toc-exercise-1-quantitative-vs-quantitative-intuition-check" class="nav-link" data-scroll-target="#exercise-1-quantitative-vs-quantitative-intuition-check"><span class="header-section-number">11</span> Exercise 1: Quantitative vs Quantitative Intuition Check</a></li>
+  <li><a href="#exercise-2-2-quantitative-variables" id="toc-exercise-2-2-quantitative-variables" class="nav-link" data-scroll-target="#exercise-2-2-quantitative-variables"><span class="header-section-number">12</span> Exercise 2: 2 Quantitative Variables</a></li>
+  <li><a href="#exercise-3-reflect" id="toc-exercise-3-reflect" class="nav-link" data-scroll-target="#exercise-3-reflect"><span class="header-section-number">13</span> Exercise 3: Reflect</a></li>
+  <li><a href="#exercise-4-visualizing-trend" id="toc-exercise-4-visualizing-trend" class="nav-link" data-scroll-target="#exercise-4-visualizing-trend"><span class="header-section-number">14</span> Exercise 4: Visualizing trend</a></li>
+  <li><a href="#exercise-5-your-turn" id="toc-exercise-5-your-turn" class="nav-link" data-scroll-target="#exercise-5-your-turn"><span class="header-section-number">15</span> Exercise 5: Your Turn</a></li>
+  <li><a href="#exercise-6-a-sad-scatterplot" id="toc-exercise-6-a-sad-scatterplot" class="nav-link" data-scroll-target="#exercise-6-a-sad-scatterplot"><span class="header-section-number">16</span> Exercise 6: A Sad Scatterplot</a></li>
+  <li><a href="#exercise-7-quantitative-vs-categorical---violins-boxes" id="toc-exercise-7-quantitative-vs-categorical---violins-boxes" class="nav-link" data-scroll-target="#exercise-7-quantitative-vs-categorical---violins-boxes"><span class="header-section-number">17</span> Exercise 7: Quantitative vs Categorical - Violins &amp; Boxes</a></li>
+  <li><a href="#exercise-8-quantitative-vs-categorical---intuition-check" id="toc-exercise-8-quantitative-vs-categorical---intuition-check" class="nav-link" data-scroll-target="#exercise-8-quantitative-vs-categorical---intuition-check"><span class="header-section-number">18</span> Exercise 8: Quantitative vs Categorical - Intuition Check</a></li>
+  <li><a href="#exercise-9-quantitative-vs-categorical---density-plots" id="toc-exercise-9-quantitative-vs-categorical---density-plots" class="nav-link" data-scroll-target="#exercise-9-quantitative-vs-categorical---density-plots"><span class="header-section-number">19</span> Exercise 9: Quantitative vs Categorical - Density Plots</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10"><span class="header-section-number">20</span> Exercise 10</a></li>
+  <li><a href="#exercise-11-categorical-vs-categorical---intuition-check" id="toc-exercise-11-categorical-vs-categorical---intuition-check" class="nav-link" data-scroll-target="#exercise-11-categorical-vs-categorical---intuition-check"><span class="header-section-number">21</span> Exercise 11: Categorical vs Categorical - Intuition Check</a></li>
+  <li><a href="#exercise-12-categorical-vs-categorical" id="toc-exercise-12-categorical-vs-categorical" class="nav-link" data-scroll-target="#exercise-12-categorical-vs-categorical"><span class="header-section-number">22</span> Exercise 12: Categorical vs Categorical</a></li>
+  <li><a href="#exercise-13-practice" id="toc-exercise-13-practice" class="nav-link" data-scroll-target="#exercise-13-practice"><span class="header-section-number">23</span> Exercise 13: Practice</a></li>
+  <li><a href="#exercises-opt" id="toc-exercises-opt" class="nav-link" data-scroll-target="#exercises-opt"><span class="header-section-number">24</span> 4.4 Exercises (opt)</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/quarto-demo.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-bi.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></a></li></ol></nav>
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/quarto-demo.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-bi.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bivariate Viz</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -265,17 +278,525 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<p>Use this file for practice with the <strong>bivariate viz</strong> in-class activity. Refer to the class website for details.</p>
+</header><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Load data</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>elections <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_county.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># Check it out</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">head</span>(elections)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  state_name state_abbr historical    county_name county_fips total_votes_20
+1    Alabama         AL        red Autauga County        1001          27770
+2    Alabama         AL        red Baldwin County        1003         109679
+3    Alabama         AL        red Barbour County        1005          10518
+4    Alabama         AL        red    Bibb County        1007           9595
+5    Alabama         AL        red  Blount County        1009          27588
+6    Alabama         AL        red Bullock County        1011           4613
+  repub_pct_20 dem_pct_20 winner_20 total_votes_16 repub_pct_16 dem_pct_16
+1        71.44      27.02     repub          24661        73.44      23.96
+2        76.17      22.41     repub          94090        77.35      19.57
+3        53.45      45.79     repub          10390        52.27      46.66
+4        78.43      20.70     repub           8748        76.97      21.42
+5        89.57       9.57     repub          25384        89.85       8.47
+6        24.84      74.70       dem           4701        24.23      75.09
+  winner_16 total_votes_12 repub_pct_12 dem_pct_12 winner_12 total_population
+1     repub          23909        72.63      26.58     repub            54907
+2     repub          84988        77.39      21.57     repub           187114
+3     repub          11459        48.34      51.25       dem            27321
+4     repub           8391        73.07      26.22     repub            22754
+5     repub          23980        86.49      12.35     repub            57623
+6       dem           5318        23.51      76.31       dem            10746
+  percent_white percent_black percent_asian percent_hispanic per_capita_income
+1            76            18             1                2             24571
+2            83             9             1                4             26766
+3            46            46             0                5             16829
+4            75            22             0                2             17427
+5            88             1             0                8             20730
+6            22            71             0                6             18628
+  median_rent median_age
+1         668       37.5
+2         693       41.5
+3         382       38.3
+4         351       39.4
+5         403       39.6
+6         276       39.6</code></pre>
+</div>
+</div>
+<section id="exercise-0-review" class="level1" data-number="10"><h1 data-number="10">
+<span class="header-section-number">10</span> Exercise 0: Review</h1>
+<p><strong>Part a</strong> How many, or roughly what percent, of the 3000+ counties did the Republican candidate win in 2020? - My guess: 72 %</p>
+<p>Then make a plot of the winner variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> winner_20)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"salmon"</span>) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"2020 Winner"</span>, <span class="at">y =</span> <span class="st">"Number of Counties"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Follow-up Questions: - Overall winner? - Still need the percentage. - Number of counties per state?</p>
+<p><strong>Part b</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"seashell"</span>, <span class="at">fill =</span> <span class="st">"peachpuff"</span>) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Percentage of Republican Support"</span>, <span class="at">y =</span> <span class="st">"Number of Counties"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>What is the overall percentage of Republican voters?</li>
+<li>What does the percentage of Democratic support look like?</li>
+<li>How many counties are within each state? What is their weight to the overall vote?</li>
+</ul></section><section id="exercise-1-quantitative-vs-quantitative-intuition-check" class="level1" data-number="11"><h1 data-number="11">
+<span class="header-section-number">11</span> Exercise 1: Quantitative vs Quantitative Intuition Check</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_16, <span class="at">y =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-2-2-quantitative-variables" class="level1" data-number="12"><h1 data-number="12">
+<span class="header-section-number">12</span> Exercise 2: 2 Quantitative Variables</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Set up the plotting frame</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co"># How does this differ than the frame for our histogram of repub_pct_20 alone? It is a bivariate visualization instead of a univariate, as it is reflecting the relationship between two variables rather than one. </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Add a layer of points for each county</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># Take note of the geom! -&gt; geom_point()</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Change the shape of the points</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co"># What happens if you change the shape to another number? -&gt; It makes the shape of each point different. In this case, they look like pluses rather than dots. </span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># YOU TRY: Modify the code to make the points "orange"</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: Try to anticipate if "color" or "fill" will be useful here. Then try both.</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"plum"</span>, <span class="at">fill =</span> <span class="st">"palegreen"</span>, <span class="at">shape =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#"Color" is more useful.  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Add a layer that represents each county by the state it's in</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># Take note of the geom and the info it needs to run!</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> state_abbr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#"geom_text" and "label = variable". </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="exercise-3-reflect" class="level1" data-number="13"><h1 data-number="13">
+<span class="header-section-number">13</span> Exercise 3: Reflect</h1>
+<ul>
+<li>Republican support in 2016 has a strong positive relationship with republican support in 2020. There are no noticeable outliers, as all the points reflect a near linear line.</li>
+</ul></section><section id="exercise-4-visualizing-trend" class="level1" data-number="14"><h1 data-number="14">
+<span class="header-section-number">14</span> Exercise 4: Visualizing trend</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">#Adds a fitted line. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Part a</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">#Contains the model smooth without the individual point glyphs. </span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Part b</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#Adds a linear line of best fit. </span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-5-your-turn" class="level1" data-number="15"><h1 data-number="15">
+<span class="header-section-number">15</span> Exercise 5: Your Turn</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Scatterplot of repub_pct_20 vs median_rent</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> median_rent)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Scatterplot of repub_pct_20 vs median_age</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> median_age)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The relationship between median_rent and repub_pct_20 is a moderate to weak negative correlation.</li>
+<li>The relationship between median_age and repub_pct_20 is a weak positive correlation.</li>
+<li>It is hard to tell without a clear linear regression analysis which variable is a better predictor of repub_pct_20, but from my eyes I would predict that median_rent is a slighter better predictor as it seems to follow a more clear pattern than median_age.</li>
+</ul></section><section id="exercise-6-a-sad-scatterplot" class="level1" data-number="16"><h1 data-number="16">
+<span class="header-section-number">16</span> Exercise 6: A Sad Scatterplot</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> historical)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Since “historical” is categorical, it tells us a count of observations in each category, which does not work well against a quantitative variable as its scatterplot reveals no information about their relationship with each other. We don’t know the relationship between the Republican voting trends of 2020 and historical voting trends.</p>
+</section><section id="exercise-7-quantitative-vs-categorical---violins-boxes" class="level1" data-number="17"><h1 data-number="17">
+<span class="header-section-number">17</span> Exercise 7: Quantitative vs Categorical - Violins &amp; Boxes</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Side-by-side violin plots</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> historical)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Side-by-side boxplots (defined below)</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> historical)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">#Box plots are constructed from five numbers - the minimum, 25th percentile, median, 75th percentile, and maximum value of a quantitative variable. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Reflect</strong> Historically, counties with a higher republican voting percentage in the 2020 election voted red. Then, they were second most likely to have historically voted purple, and least likely to have voted blue.</p>
+</section><section id="exercise-8-quantitative-vs-categorical---intuition-check" class="level1" data-number="18"><h1 data-number="18">
+<span class="header-section-number">18</span> Exercise 8: Quantitative vs Categorical - Intuition Check</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-9-quantitative-vs-categorical---density-plots" class="level1" data-number="19"><h1 data-number="19">
+<span class="header-section-number">19</span> Exercise 9: Quantitative vs Categorical - Density Plots</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Name two "bad" things about this plot: 1) There are no labels; 2) The colors don't match the parties. </span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># What does scale_fill_manual do? -&gt; It changes the color of each category.  </span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># What does alpha = 0.5 do? -&gt; It adjusts the transparency</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="co"># Play around with different values of alpha, between 0 and 1</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># What does facet_wrap do?! -&gt; facet_wrap breaks the graph into its different categories for easy individual viewing of each category. </span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> historical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Let's try a similar grouping strategy with a histogram instead of density plot.</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="co"># Why is this terrible? -&gt; Since histograms prioritize the count over the ratio of each category, the visualization becomes incredibly misleading, as blue is now the seemingly most popular party historically. </span></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-10" class="level1" data-number="20"><h1 data-number="20">
+<span class="header-section-number">20</span> Exercise 10</h1>
+<ul>
+<li>I like density plots the most because it seems to be most efficient for immediate pattern-recognition. The others take a bit more effort in order to understand the distribution of each the categories, although I like boxplots as well.</li>
+<li>Density plots tell us more details about the distribution of the data because it is easy to see the shape and modes.</li>
+<li>One con, however, is that density plots can be harder to compare details about the relationships between variables, while boxplots are a great device for visually comparing percentiles, medians, etc.</li>
+</ul></section><section id="exercise-11-categorical-vs-categorical---intuition-check" class="level1" data-number="21"><h1 data-number="21">
+<span class="header-section-number">21</span> Exercise 11: Categorical vs Categorical - Intuition Check</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Plot 1: adjust this to recreate the top plot</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Plot 2: adjust this to recreate the bottom plot</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> historical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-12-categorical-vs-categorical" class="level1" data-number="22"><h1 data-number="22">
+<span class="header-section-number">22</span> Exercise 12: Categorical vs Categorical</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># A stacked bar plot</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="co"># How are the "historical" and "winner_20" variables mapped to the plot, i.e. what roles do they play?</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">#We are measuring the count of each county historically, moderated by the how many counties each party one in 2020. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># A faceted bar plot</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> historical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># A side-by-side bar plot</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co"># Note the new argument to geom_bar</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># A proportional bar plot</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="co"># Note the new argument to geom_bar</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Part a - It is not helpful for understanding the total number of counts for each category, but - It is helpful for understanding the percentage each variable received.</p>
+<p>Part b - I think it depends on the question. I think the side-by-side bar plot is the most applicable to the majority of scenarios, but if I needed to understand percentages the proportional bar plot would be more handy.</p>
+</section><section id="exercise-13-practice" class="level1" data-number="23"><h1 data-number="23">
+<span class="header-section-number">23</span> Exercise 13: Practice</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>weather <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/weather_3_locations.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>How do 3pm temperatures (temp3pm) differ by location?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 19 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Uluru seems to have the most varying temperatures, but overall the highest at a median temperature of 30 degrees. Hobart and Wollongong are close, as the lowest 25th percentile of temperatures in Wollongong overlaps with the highest 25th percentile of Hobart, but overall Hobart has a colder median temperature of about 15 degrees while Wollongong is closer to 20.</p>
+<p><strong># How might we predict the 3pm temperature (temp3pm) by the 9am temperature (temp9am)?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp9am, <span class="at">y =</span> temp3pm)) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 27 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 27 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Overall, the temperature at 3 pm seems to be consistently 5 degrees higher than it was at 9 am.</p>
+<p><strong># How do the number of rainy days (raintoday) differ by location?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">fill =</span> raintoday, <span class="at">x =</span> location)) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ica-bi_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>None of the locations seem particularly rainy, but Uluru is certainly the least rainy and Wollongong seems to be the relatively most rainy.</p>
+</section><section id="exercises-opt" class="level1" data-number="24"><h1 data-number="24">
+<span class="header-section-number">24</span> 4.4 Exercises (opt)</h1>
 
 
 <!-- -->
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -894,27 +1415,282 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../ica/ica-uni.html" class="pagination-link" aria-label="Univariate Viz">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../ica/ica-multi.html" class="pagination-link" aria-label="Mulivariate Viz">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Bivariate Viz"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>Use this file for practice with the **bivariate viz** in-class activity.  Refer to the class website for details.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href="#cb53-1"></a><span class="co">---</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="an">title:</span><span class="co"> "Bivariate Viz"</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="co">---</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a></span>
+<span id="cb53-7"><a href="#cb53-7"></a><span class="in">```{r}</span></span>
+<span id="cb53-8"><a href="#cb53-8"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb53-9"><a href="#cb53-9"></a><span class="co"># Load data</span></span>
+<span id="cb53-10"><a href="#cb53-10"></a>elections <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_county.csv"</span>)</span>
+<span id="cb53-11"><a href="#cb53-11"></a></span>
+<span id="cb53-12"><a href="#cb53-12"></a><span class="co"># Check it out</span></span>
+<span id="cb53-13"><a href="#cb53-13"></a><span class="fu">head</span>(elections)</span>
+<span id="cb53-14"><a href="#cb53-14"></a><span class="in">```</span></span>
+<span id="cb53-15"><a href="#cb53-15"></a><span class="fu"># Exercise 0: Review </span></span>
+<span id="cb53-16"><a href="#cb53-16"></a>**Part a** </span>
+<span id="cb53-17"><a href="#cb53-17"></a>How many, or roughly what percent, of the 3000+ counties did the Republican candidate win in 2020?</span>
+<span id="cb53-18"><a href="#cb53-18"></a><span class="ss">- </span>My guess: 72 % </span>
+<span id="cb53-19"><a href="#cb53-19"></a></span>
+<span id="cb53-20"><a href="#cb53-20"></a>Then make a plot of the winner variable.</span>
+<span id="cb53-23"><a href="#cb53-23"></a><span class="in">```{r}</span></span>
+<span id="cb53-24"><a href="#cb53-24"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> winner_20)) <span class="sc">+</span> </span>
+<span id="cb53-25"><a href="#cb53-25"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"salmon"</span>) <span class="sc">+</span> </span>
+<span id="cb53-26"><a href="#cb53-26"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"2020 Winner"</span>, <span class="at">y =</span> <span class="st">"Number of Counties"</span>)</span>
+<span id="cb53-27"><a href="#cb53-27"></a><span class="in">```</span></span>
+<span id="cb53-28"><a href="#cb53-28"></a></span>
+<span id="cb53-29"><a href="#cb53-29"></a>Follow-up Questions: </span>
+<span id="cb53-30"><a href="#cb53-30"></a><span class="ss">- </span>Overall winner? </span>
+<span id="cb53-31"><a href="#cb53-31"></a><span class="ss">- </span>Still need the percentage. </span>
+<span id="cb53-32"><a href="#cb53-32"></a><span class="ss">- </span>Number of counties per state? </span>
+<span id="cb53-33"><a href="#cb53-33"></a></span>
+<span id="cb53-34"><a href="#cb53-34"></a>**Part b** </span>
+<span id="cb53-37"><a href="#cb53-37"></a><span class="in">```{r}</span></span>
+<span id="cb53-38"><a href="#cb53-38"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20)) <span class="sc">+</span> </span>
+<span id="cb53-39"><a href="#cb53-39"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"seashell"</span>, <span class="at">fill =</span> <span class="st">"peachpuff"</span>) <span class="sc">+</span> </span>
+<span id="cb53-40"><a href="#cb53-40"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Percentage of Republican Support"</span>, <span class="at">y =</span> <span class="st">"Number of Counties"</span>)</span>
+<span id="cb53-41"><a href="#cb53-41"></a><span class="in">```</span></span>
+<span id="cb53-42"><a href="#cb53-42"></a><span class="ss">- </span>What is the overall percentage of Republican voters? </span>
+<span id="cb53-43"><a href="#cb53-43"></a><span class="ss">- </span>What does the percentage of Democratic support look like? </span>
+<span id="cb53-44"><a href="#cb53-44"></a><span class="ss">- </span>How many counties are within each state? What is their weight to the overall vote? </span>
+<span id="cb53-45"><a href="#cb53-45"></a></span>
+<span id="cb53-46"><a href="#cb53-46"></a><span class="fu"># Exercise 1: Quantitative vs Quantitative Intuition Check </span></span>
+<span id="cb53-49"><a href="#cb53-49"></a><span class="in">```{r}</span></span>
+<span id="cb53-50"><a href="#cb53-50"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_16, <span class="at">y =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb53-51"><a href="#cb53-51"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb53-52"><a href="#cb53-52"></a><span class="in">```</span></span>
+<span id="cb53-53"><a href="#cb53-53"></a><span class="fu"># Exercise 2: 2 Quantitative Variables </span></span>
+<span id="cb53-56"><a href="#cb53-56"></a><span class="in">```{r}</span></span>
+<span id="cb53-57"><a href="#cb53-57"></a><span class="co"># Set up the plotting frame</span></span>
+<span id="cb53-58"><a href="#cb53-58"></a><span class="co"># How does this differ than the frame for our histogram of repub_pct_20 alone? It is a bivariate visualization instead of a univariate, as it is reflecting the relationship between two variables rather than one. </span></span>
+<span id="cb53-59"><a href="#cb53-59"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16))</span>
+<span id="cb53-60"><a href="#cb53-60"></a><span class="in">```</span></span>
+<span id="cb53-63"><a href="#cb53-63"></a><span class="in">```{r}</span></span>
+<span id="cb53-64"><a href="#cb53-64"></a><span class="co"># Add a layer of points for each county</span></span>
+<span id="cb53-65"><a href="#cb53-65"></a><span class="co"># Take note of the geom! -&gt; geom_point()</span></span>
+<span id="cb53-66"><a href="#cb53-66"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-67"><a href="#cb53-67"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb53-68"><a href="#cb53-68"></a><span class="in">```</span></span>
+<span id="cb53-71"><a href="#cb53-71"></a><span class="in">```{r}</span></span>
+<span id="cb53-72"><a href="#cb53-72"></a><span class="co"># Change the shape of the points</span></span>
+<span id="cb53-73"><a href="#cb53-73"></a><span class="co"># What happens if you change the shape to another number? -&gt; It makes the shape of each point different. In this case, they look like pluses rather than dots. </span></span>
+<span id="cb53-74"><a href="#cb53-74"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-75"><a href="#cb53-75"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">3</span>)</span>
+<span id="cb53-76"><a href="#cb53-76"></a><span class="in">```</span></span>
+<span id="cb53-77"><a href="#cb53-77"></a></span>
+<span id="cb53-80"><a href="#cb53-80"></a><span class="in">```{r}</span></span>
+<span id="cb53-81"><a href="#cb53-81"></a><span class="co"># YOU TRY: Modify the code to make the points "orange"</span></span>
+<span id="cb53-82"><a href="#cb53-82"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: Try to anticipate if "color" or "fill" will be useful here. Then try both.</span></span>
+<span id="cb53-83"><a href="#cb53-83"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-84"><a href="#cb53-84"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"plum"</span>, <span class="at">fill =</span> <span class="st">"palegreen"</span>, <span class="at">shape =</span> <span class="dv">3</span>)</span>
+<span id="cb53-85"><a href="#cb53-85"></a><span class="co">#"Color" is more useful.  </span></span>
+<span id="cb53-86"><a href="#cb53-86"></a><span class="in">```</span></span>
+<span id="cb53-89"><a href="#cb53-89"></a><span class="in">```{r}</span></span>
+<span id="cb53-90"><a href="#cb53-90"></a><span class="co"># Add a layer that represents each county by the state it's in</span></span>
+<span id="cb53-91"><a href="#cb53-91"></a><span class="co"># Take note of the geom and the info it needs to run!</span></span>
+<span id="cb53-92"><a href="#cb53-92"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-93"><a href="#cb53-93"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> state_abbr))</span>
+<span id="cb53-94"><a href="#cb53-94"></a><span class="co">#"geom_text" and "label = variable". </span></span>
+<span id="cb53-95"><a href="#cb53-95"></a><span class="in">```</span></span>
+<span id="cb53-96"><a href="#cb53-96"></a><span class="fu"># Exercise 3: Reflect </span></span>
+<span id="cb53-97"><a href="#cb53-97"></a><span class="ss">- </span>Republican support in 2016 has a strong positive relationship with republican support in 2020. There are no noticeable outliers, as all the points reflect a near linear line. </span>
+<span id="cb53-98"><a href="#cb53-98"></a></span>
+<span id="cb53-99"><a href="#cb53-99"></a><span class="fu"># Exercise 4: Visualizing trend </span></span>
+<span id="cb53-102"><a href="#cb53-102"></a><span class="in">```{r}</span></span>
+<span id="cb53-103"><a href="#cb53-103"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-104"><a href="#cb53-104"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-105"><a href="#cb53-105"></a>  <span class="fu">geom_smooth</span>()</span>
+<span id="cb53-106"><a href="#cb53-106"></a><span class="co">#Adds a fitted line. </span></span>
+<span id="cb53-107"><a href="#cb53-107"></a><span class="in">```</span></span>
+<span id="cb53-108"><a href="#cb53-108"></a>**Part a** </span>
+<span id="cb53-111"><a href="#cb53-111"></a><span class="in">```{r}</span></span>
+<span id="cb53-112"><a href="#cb53-112"></a><span class="co">#Contains the model smooth without the individual point glyphs. </span></span>
+<span id="cb53-113"><a href="#cb53-113"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-114"><a href="#cb53-114"></a>  <span class="fu">geom_smooth</span>()</span>
+<span id="cb53-115"><a href="#cb53-115"></a><span class="in">```</span></span>
+<span id="cb53-116"><a href="#cb53-116"></a></span>
+<span id="cb53-117"><a href="#cb53-117"></a>**Part b** </span>
+<span id="cb53-120"><a href="#cb53-120"></a><span class="in">```{r}</span></span>
+<span id="cb53-121"><a href="#cb53-121"></a><span class="co">#Adds a linear line of best fit. </span></span>
+<span id="cb53-122"><a href="#cb53-122"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> repub_pct_16)) <span class="sc">+</span></span>
+<span id="cb53-123"><a href="#cb53-123"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-124"><a href="#cb53-124"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb53-125"><a href="#cb53-125"></a><span class="in">```</span></span>
+<span id="cb53-126"><a href="#cb53-126"></a><span class="fu"># Exercise 5: Your Turn </span></span>
+<span id="cb53-129"><a href="#cb53-129"></a><span class="in">```{r}</span></span>
+<span id="cb53-130"><a href="#cb53-130"></a><span class="co"># Scatterplot of repub_pct_20 vs median_rent</span></span>
+<span id="cb53-131"><a href="#cb53-131"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> median_rent)) <span class="sc">+</span></span>
+<span id="cb53-132"><a href="#cb53-132"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-133"><a href="#cb53-133"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb53-134"><a href="#cb53-134"></a></span>
+<span id="cb53-135"><a href="#cb53-135"></a><span class="co"># Scatterplot of repub_pct_20 vs median_age</span></span>
+<span id="cb53-136"><a href="#cb53-136"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> median_age)) <span class="sc">+</span></span>
+<span id="cb53-137"><a href="#cb53-137"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-138"><a href="#cb53-138"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb53-139"><a href="#cb53-139"></a><span class="in">```</span></span>
+<span id="cb53-140"><a href="#cb53-140"></a><span class="ss">- </span>The relationship between median_rent and repub_pct_20 is a moderate to weak negative correlation. </span>
+<span id="cb53-141"><a href="#cb53-141"></a><span class="ss">- </span>The relationship between median_age and repub_pct_20 is a weak positive correlation. </span>
+<span id="cb53-142"><a href="#cb53-142"></a><span class="ss">- </span>It is hard to tell without a clear linear regression analysis which variable is a better predictor of repub_pct_20, but from my eyes I would predict that median_rent is a slighter better predictor as it seems to follow a more clear pattern than median_age. </span>
+<span id="cb53-143"><a href="#cb53-143"></a></span>
+<span id="cb53-144"><a href="#cb53-144"></a><span class="fu"># Exercise 6: A Sad Scatterplot </span></span>
+<span id="cb53-147"><a href="#cb53-147"></a><span class="in">```{r}</span></span>
+<span id="cb53-148"><a href="#cb53-148"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-149"><a href="#cb53-149"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb53-150"><a href="#cb53-150"></a><span class="in">```</span></span>
+<span id="cb53-151"><a href="#cb53-151"></a>Since "historical" is categorical, it tells us a count of observations in each category, which does not work well against a quantitative variable as its scatterplot reveals no information about their relationship with each other. We don't know the relationship between the Republican voting trends of 2020 and historical voting trends. </span>
+<span id="cb53-152"><a href="#cb53-152"></a></span>
+<span id="cb53-153"><a href="#cb53-153"></a><span class="fu"># Exercise 7: Quantitative vs Categorical - Violins &amp; Boxes </span></span>
+<span id="cb53-156"><a href="#cb53-156"></a><span class="in">```{r}</span></span>
+<span id="cb53-157"><a href="#cb53-157"></a><span class="co"># Side-by-side violin plots</span></span>
+<span id="cb53-158"><a href="#cb53-158"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-159"><a href="#cb53-159"></a>  <span class="fu">geom_violin</span>()</span>
+<span id="cb53-160"><a href="#cb53-160"></a><span class="in">```</span></span>
+<span id="cb53-161"><a href="#cb53-161"></a></span>
+<span id="cb53-164"><a href="#cb53-164"></a><span class="in">```{r}</span></span>
+<span id="cb53-165"><a href="#cb53-165"></a><span class="co"># Side-by-side boxplots (defined below)</span></span>
+<span id="cb53-166"><a href="#cb53-166"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">y =</span> repub_pct_20, <span class="at">x =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-167"><a href="#cb53-167"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb53-168"><a href="#cb53-168"></a><span class="co">#Box plots are constructed from five numbers - the minimum, 25th percentile, median, 75th percentile, and maximum value of a quantitative variable. </span></span>
+<span id="cb53-169"><a href="#cb53-169"></a><span class="in">```</span></span>
+<span id="cb53-170"><a href="#cb53-170"></a>**Reflect** </span>
+<span id="cb53-171"><a href="#cb53-171"></a>Historically, counties with a higher republican voting percentage in the 2020 election voted red. Then, they were second most likely to have historically voted purple, and least likely to have voted blue. </span>
+<span id="cb53-172"><a href="#cb53-172"></a></span>
+<span id="cb53-173"><a href="#cb53-173"></a><span class="fu"># Exercise 8: Quantitative vs Categorical - Intuition Check </span></span>
+<span id="cb53-174"><a href="#cb53-174"></a></span>
+<span id="cb53-177"><a href="#cb53-177"></a><span class="in">```{r}</span></span>
+<span id="cb53-178"><a href="#cb53-178"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb53-179"><a href="#cb53-179"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"blue"</span>)</span>
+<span id="cb53-180"><a href="#cb53-180"></a><span class="in">```</span></span>
+<span id="cb53-181"><a href="#cb53-181"></a><span class="fu"># Exercise 9: Quantitative vs Categorical - Density Plots </span></span>
+<span id="cb53-184"><a href="#cb53-184"></a><span class="in">```{r}</span></span>
+<span id="cb53-185"><a href="#cb53-185"></a><span class="co"># Name two "bad" things about this plot: 1) There are no labels; 2) The colors don't match the parties. </span></span>
+<span id="cb53-186"><a href="#cb53-186"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-187"><a href="#cb53-187"></a>  <span class="fu">geom_density</span>()</span>
+<span id="cb53-188"><a href="#cb53-188"></a><span class="in">```</span></span>
+<span id="cb53-191"><a href="#cb53-191"></a><span class="in">```{r}</span></span>
+<span id="cb53-192"><a href="#cb53-192"></a><span class="co"># What does scale_fill_manual do? -&gt; It changes the color of each category.  </span></span>
+<span id="cb53-193"><a href="#cb53-193"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-194"><a href="#cb53-194"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb53-195"><a href="#cb53-195"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span>
+<span id="cb53-196"><a href="#cb53-196"></a><span class="in">```</span></span>
+<span id="cb53-199"><a href="#cb53-199"></a><span class="in">```{r}</span></span>
+<span id="cb53-200"><a href="#cb53-200"></a><span class="co"># What does alpha = 0.5 do? -&gt; It adjusts the transparency</span></span>
+<span id="cb53-201"><a href="#cb53-201"></a><span class="co"># Play around with different values of alpha, between 0 and 1</span></span>
+<span id="cb53-202"><a href="#cb53-202"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-203"><a href="#cb53-203"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb53-204"><a href="#cb53-204"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span>
+<span id="cb53-205"><a href="#cb53-205"></a><span class="in">```</span></span>
+<span id="cb53-208"><a href="#cb53-208"></a><span class="in">```{r}</span></span>
+<span id="cb53-209"><a href="#cb53-209"></a><span class="co"># What does facet_wrap do?! -&gt; facet_wrap breaks the graph into its different categories for easy individual viewing of each category. </span></span>
+<span id="cb53-210"><a href="#cb53-210"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-211"><a href="#cb53-211"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb53-212"><a href="#cb53-212"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb53-213"><a href="#cb53-213"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> historical)</span>
+<span id="cb53-214"><a href="#cb53-214"></a><span class="in">```</span></span>
+<span id="cb53-215"><a href="#cb53-215"></a></span>
+<span id="cb53-218"><a href="#cb53-218"></a><span class="in">```{r}</span></span>
+<span id="cb53-219"><a href="#cb53-219"></a><span class="co"># Let's try a similar grouping strategy with a histogram instead of density plot.</span></span>
+<span id="cb53-220"><a href="#cb53-220"></a><span class="co"># Why is this terrible? -&gt; Since histograms prioritize the count over the ratio of each category, the visualization becomes incredibly misleading, as blue is now the seemingly most popular party historically. </span></span>
+<span id="cb53-221"><a href="#cb53-221"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_20, <span class="at">fill =</span> historical)) <span class="sc">+</span></span>
+<span id="cb53-222"><a href="#cb53-222"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb53-223"><a href="#cb53-223"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span>
+<span id="cb53-224"><a href="#cb53-224"></a><span class="in">```</span></span>
+<span id="cb53-225"><a href="#cb53-225"></a></span>
+<span id="cb53-226"><a href="#cb53-226"></a><span class="fu"># Exercise 10 </span></span>
+<span id="cb53-227"><a href="#cb53-227"></a><span class="ss">- </span>I like density plots the most because it seems to be most efficient for immediate pattern-recognition. The others take a bit more effort in order to understand the distribution of each the categories, although I like boxplots as well. </span>
+<span id="cb53-228"><a href="#cb53-228"></a><span class="ss">- </span>Density plots tell us more details about the distribution of the data because it is easy to see the shape and modes. </span>
+<span id="cb53-229"><a href="#cb53-229"></a><span class="ss">- </span>One con, however, is that density plots can be harder to compare details about the relationships between variables, while boxplots are a great device for visually comparing percentiles, medians, etc. </span>
+<span id="cb53-230"><a href="#cb53-230"></a></span>
+<span id="cb53-231"><a href="#cb53-231"></a><span class="fu"># Exercise 11: Categorical vs Categorical - Intuition Check </span></span>
+<span id="cb53-234"><a href="#cb53-234"></a><span class="in">```{r}</span></span>
+<span id="cb53-235"><a href="#cb53-235"></a><span class="co"># Plot 1: adjust this to recreate the top plot</span></span>
+<span id="cb53-236"><a href="#cb53-236"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb53-237"><a href="#cb53-237"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb53-238"><a href="#cb53-238"></a><span class="in">```</span></span>
+<span id="cb53-241"><a href="#cb53-241"></a><span class="in">```{r}</span></span>
+<span id="cb53-242"><a href="#cb53-242"></a><span class="co"># Plot 2: adjust this to recreate the bottom plot</span></span>
+<span id="cb53-243"><a href="#cb53-243"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb53-244"><a href="#cb53-244"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb53-245"><a href="#cb53-245"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> historical)</span>
+<span id="cb53-246"><a href="#cb53-246"></a><span class="in">```</span></span>
+<span id="cb53-247"><a href="#cb53-247"></a><span class="fu"># Exercise 12: Categorical vs Categorical </span></span>
+<span id="cb53-248"><a href="#cb53-248"></a></span>
+<span id="cb53-251"><a href="#cb53-251"></a><span class="in">```{r}</span></span>
+<span id="cb53-252"><a href="#cb53-252"></a><span class="co"># A stacked bar plot</span></span>
+<span id="cb53-253"><a href="#cb53-253"></a><span class="co"># How are the "historical" and "winner_20" variables mapped to the plot, i.e. what roles do they play?</span></span>
+<span id="cb53-254"><a href="#cb53-254"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb53-255"><a href="#cb53-255"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb53-256"><a href="#cb53-256"></a><span class="co">#We are measuring the count of each county historically, moderated by the how many counties each party one in 2020. </span></span>
+<span id="cb53-257"><a href="#cb53-257"></a><span class="in">```</span></span>
+<span id="cb53-260"><a href="#cb53-260"></a><span class="in">```{r}</span></span>
+<span id="cb53-261"><a href="#cb53-261"></a><span class="co"># A faceted bar plot</span></span>
+<span id="cb53-262"><a href="#cb53-262"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb53-263"><a href="#cb53-263"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb53-264"><a href="#cb53-264"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> historical)</span>
+<span id="cb53-265"><a href="#cb53-265"></a><span class="in">```</span></span>
+<span id="cb53-266"><a href="#cb53-266"></a></span>
+<span id="cb53-269"><a href="#cb53-269"></a><span class="in">```{r}</span></span>
+<span id="cb53-270"><a href="#cb53-270"></a><span class="co"># A side-by-side bar plot</span></span>
+<span id="cb53-271"><a href="#cb53-271"></a><span class="co"># Note the new argument to geom_bar</span></span>
+<span id="cb53-272"><a href="#cb53-272"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb53-273"><a href="#cb53-273"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span>
+<span id="cb53-274"><a href="#cb53-274"></a><span class="in">```</span></span>
+<span id="cb53-277"><a href="#cb53-277"></a><span class="in">```{r}</span></span>
+<span id="cb53-278"><a href="#cb53-278"></a><span class="co"># A proportional bar plot</span></span>
+<span id="cb53-279"><a href="#cb53-279"></a><span class="co"># Note the new argument to geom_bar</span></span>
+<span id="cb53-280"><a href="#cb53-280"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> historical, <span class="at">fill =</span> winner_20)) <span class="sc">+</span></span>
+<span id="cb53-281"><a href="#cb53-281"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span>
+<span id="cb53-282"><a href="#cb53-282"></a><span class="in">```</span></span>
+<span id="cb53-283"><a href="#cb53-283"></a>Part a </span>
+<span id="cb53-284"><a href="#cb53-284"></a><span class="ss">- </span>It is not helpful for understanding the total number of counts for each category, but</span>
+<span id="cb53-285"><a href="#cb53-285"></a><span class="ss">- </span>It is helpful for understanding the percentage each variable received. </span>
+<span id="cb53-286"><a href="#cb53-286"></a></span>
+<span id="cb53-287"><a href="#cb53-287"></a>Part b </span>
+<span id="cb53-288"><a href="#cb53-288"></a><span class="ss">- </span>I think it depends on the question. I think the side-by-side bar plot is the most applicable to the majority of scenarios, but if I needed to understand percentages the proportional bar plot would be more handy. </span>
+<span id="cb53-289"><a href="#cb53-289"></a></span>
+<span id="cb53-290"><a href="#cb53-290"></a><span class="fu"># Exercise 13: Practice </span></span>
+<span id="cb53-291"><a href="#cb53-291"></a></span>
+<span id="cb53-294"><a href="#cb53-294"></a><span class="in">```{r}</span></span>
+<span id="cb53-295"><a href="#cb53-295"></a>weather <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/weather_3_locations.csv"</span>)</span>
+<span id="cb53-296"><a href="#cb53-296"></a><span class="in">```</span></span>
+<span id="cb53-297"><a href="#cb53-297"></a></span>
+<span id="cb53-298"><a href="#cb53-298"></a>**How do 3pm temperatures (temp3pm) differ by location?** </span>
+<span id="cb53-301"><a href="#cb53-301"></a><span class="in">```{r}</span></span>
+<span id="cb53-302"><a href="#cb53-302"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp3pm, <span class="at">fill =</span> location)) <span class="sc">+</span> </span>
+<span id="cb53-303"><a href="#cb53-303"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb53-304"><a href="#cb53-304"></a><span class="in">```</span></span>
+<span id="cb53-305"><a href="#cb53-305"></a>Uluru seems to have the most varying temperatures, but overall the highest at a median temperature of 30 degrees. Hobart and Wollongong are close, as the lowest 25th percentile of temperatures in Wollongong overlaps with the highest 25th percentile of Hobart, but overall Hobart has a colder median temperature of about 15 degrees while Wollongong is closer to 20. </span>
+<span id="cb53-306"><a href="#cb53-306"></a></span>
+<span id="cb53-307"><a href="#cb53-307"></a>**# How might we predict the 3pm temperature (temp3pm) by the 9am temperature (temp9am)?** </span>
+<span id="cb53-310"><a href="#cb53-310"></a><span class="in">```{r}</span></span>
+<span id="cb53-311"><a href="#cb53-311"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">x =</span> temp9am, <span class="at">y =</span> temp3pm)) <span class="sc">+</span> </span>
+<span id="cb53-312"><a href="#cb53-312"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb53-313"><a href="#cb53-313"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb53-314"><a href="#cb53-314"></a><span class="in">```</span></span>
+<span id="cb53-315"><a href="#cb53-315"></a>Overall, the temperature at 3 pm seems to be consistently 5 degrees higher than it was at 9 am. </span>
+<span id="cb53-316"><a href="#cb53-316"></a></span>
+<span id="cb53-317"><a href="#cb53-317"></a>**# How do the number of rainy days (raintoday) differ by location?**</span>
+<span id="cb53-320"><a href="#cb53-320"></a><span class="in">```{r}</span></span>
+<span id="cb53-321"><a href="#cb53-321"></a><span class="fu">ggplot</span>(weather, <span class="fu">aes</span>(<span class="at">fill =</span> raintoday, <span class="at">x =</span> location)) <span class="sc">+</span> </span>
+<span id="cb53-322"><a href="#cb53-322"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb53-323"><a href="#cb53-323"></a><span class="in">```</span></span>
+<span id="cb53-324"><a href="#cb53-324"></a>None of the locations seem particularly rainy, but Uluru is certainly the least rainy and Wollongong seems to be the relatively most rainy. </span>
+<span id="cb53-325"><a href="#cb53-325"></a></span>
+<span id="cb53-326"><a href="#cb53-326"></a><span class="fu"># 4.4 Exercises (opt)</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-
 
 
 
