@@ -2,4 +2,15 @@
 title: "Univariate Viz"
 ---
 
-Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+```{r, fig.cap = "Load Packages and Data"}
+library(tidyverse)
+
+# Data on students in this class
+survey <- read.csv("https://hash-mac.github.io/stat112site-s25/data/survey.csv")
+```
+
+```{r, fig.cap = "Univariate Visualization"}
+ggplot(survey, aes(x = hangout)) + 
+  geom_bar(color = "white", fill = "salmon") + 
+  labs(x = "Favorite Hangout Spot", y = "Number of Students", title = "Data Science Students' Favorite Hangout Spots")
+```

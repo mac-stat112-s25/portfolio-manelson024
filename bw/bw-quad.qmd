@@ -2,4 +2,27 @@
 title: "Quadvariate Viz"
 ---
 
-Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+```{r, fig.caption = "Set Up"}
+# Load packages. 
+library(tidyverse)
+library(mosaic)
+library(fivethirtyeight)
+
+# Load data. 
+data(bechdel)
+new_bechdel <- bechdel |>
+  mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
+  mutate(half_decades = cut(year, breaks = seq(1969, 2014, by = 5)))
+```
+
+
+
+```{r, fig.caption = "Quadvariate Visualization"}
+ggplot(new_bechdel, aes(x = budget, y = domgross, color = year)) + 
+  geom_point() + 
+  facet_wrap(~ clean_test) +
+  labs(x = "Budget in Release Year", y = "Domestic Gross in Release Year", color = "Year", title = "Budget and Money Earned by Year and Bechdel Test Status") + 
+  geom_smooth(method = "lm")
+```
+```
+

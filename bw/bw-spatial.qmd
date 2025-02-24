@@ -2,4 +2,63 @@
 title: "Spatial Viz"
 ---
 
-Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+```{r, fig.cap = "Set Up"}
+# Load packages. 
+library(tidyverse)
+library(sf)
+library(gplots)
+library(maps)
+library(RColorBrewer)
+library(mosaic)
+
+# Load data. 
+
+starbucks <- read.csv("https://mac-stat.github.io/data/starbucks.csv")
+elections_by_state <-  read.csv("https://mac-stat.github.io/data/election_2020_by_state.csv")
+elections_by_counties <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+states_map <- map_data("state")
+
+# Categorizing the code. 
+elections_by_state <- elections_by_state |> 
+  filter(state_abbr != "DC") |> 
+  select(state_name, state_abbr, repub_pct_20) |> 
+  mutate(repub_20_categories = 
+           cut(repub_pct_20, 
+               breaks = seq(30, 70, by = 5), 
+               labels = c("30-34", "35-39", "40-44", "45-49",
+                          "50-54", "55-59", "60-64", "65-70"), 
+               include.lowest = TRUE))
+
+elections_by_counties <- elections_by_counties |> 
+  select(state_name, state_abbr, county_name, county_fips,
+          repub_pct_20, median_age, median_rent) |> 
+  mutate(repub_20_categories = 
+           cut(repub_pct_20, 
+               breaks = seq(0, 100, by = 10),
+               labels = c("0-9", "10-19", "20-29", "30-39", "40-49",
+                          "50-59", "60-69", "70-79", "80-89", "90-100"),
+               include.lowest = TRUE))
+
+# Get only the Starbucks data from the US. 
+starbucks_us <- starbucks |> 
+  filter(Country == "US")
+```
+
+
+
+```{r, fig.cap = "Spatial Visualization"}
+ggplot(elections_by_state, aes(map_id = state_name, fill = repub_20_categories)) +
+  geom_map(map = states_map) +
+  geom_point(
+    data = starbucks_us,
+    aes(x = Longitude, y = Latitude),
+    size = 0.05,
+    alpha = 0.2,
+    inherit.aes = FALSE, 
+    color = "salmon"
+  ) +
+  expand_limits(x = states_map$long, y = states_map$lat) +
+  labs(title = "Republican Voting Trends and Starbucks Locations") +
+  theme_map() + 
+  scale_fill_manual(values = rev(brewer.pal(8, "RdBu")), name = "% Republican")  
+```

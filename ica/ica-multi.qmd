@@ -2,4 +2,96 @@
 title: "Mulivariate Viz"
 ---
 
-Use this file for practice with the **mulivariate viz** in-class activity.  Refer to the class website for details.
+```{r}
+library(tidyverse)
+```
+
+
+# 5.3 Exercises
+
+```{r}
+# Import and check out data
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+head(education)
+```
+
+# Exercise 1: SAT Scores
+
+**Part a** 
+
+Plot of how the average SAT scores vary from state to state. 
+```{r}
+ggplot(education, aes(x = sat)) +
+  geom_histogram()
+```
+**Part b** 
+Average SAT scores range from a score of approximately 800 to a little over 1100.The mode of the data is at a score of 900, as 6 states have that as an average score. It is a right-skewed graph, which make sense since higher scores would likely skew the data to be higher, while typically low scores would be unusual. 
+
+#Exercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries 
+```{r}
+# Construct a plot of sat vs expend
+# Include a "best fit linear regression model" (HINT: method = "lm")
+
+ggplot(education, aes(x = sat, y = expend)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+```{r}
+# Construct a plot of sat vs salary
+# Include a "best fit linear regression model" (HINT: method = "lm")
+
+ggplot(education, aes(x = sat, y = salary)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+**Part b** 
+Both expense and salary have a negative relationship with SAT scores. This is surprising because my intuition assumed that higher spending per pupil and for teachers would mean better education, and therefore higher test scores. 
+
+# Exercise 3: SAT Scores vs Per Pupil Spending *and* Teacher Salaries 
+
+```{r}
+ggplot(education, aes(x = sat, y = salary, color = expend)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+# Exercise 4: Another way to Incorporate Scale 
+```{r}
+ggplot(education, aes(y = sat, x = salary, color = cut(expend, 3))) + 
+  geom_point() + 
+  geom_smooth(se = FALSE, method = "lm")
+```
+SAT scores seem to decrease as salary and expense increase. However, there appears to be a slight upward trend in SAT scores as the salary and expense gets as high as it can. 
+
+# Exercise 5: Finally an Explanation 
+
+**Part a**
+The fracCat variable indicates this fraction: low (under 15% take the SAT), medium (15-45% take the SAT), and high (at least 45% take the SAT). 
+
+```{r}
+ggplot(education, aes(x = fracCat)) + 
+  geom_bar()
+```
+
+**Part b** 
+
+```{r}
+#Plot 1
+ggplot(education, aes(x = sat, fill = fracCat)) + 
+  geom_density(alpha = 0.5)
+
+#Plot 2 
+```
+This visualization indicates that the more students that take the SAT, the lower the average score tends to be. 
+
+**Part c** 
+```{r}
+ggplot(education, aes(y = sat, x = expend, color = fracCat))+ 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+When we control for the fraction of students that actually take the SAT, scores increase with expenses. 
+
+
+**Part d: Simpson's Paradox** 
+It appeared that SAT scores decrease as spending increases because we were missing a key piece of contextual information - participation. Student participation tends to be lower in states that spend less on their students. The students that do end up taking the tests are highly motivated and more likely to score better. In comparison, schools with higher expenses are more likely to encourage or require as many students as possible to take the SATs, so their participation becomes high but since they have a bigger size, the average becomes weighed down.   
