@@ -218,7 +218,7 @@ I think the chunk will filter the data to only counties in Wisconsin where the d
 
 BEFORE trying, what do you think will happen if you change the order of filter and arrange:
 
--   we won't get an error, but the results will be different
+-   We won't get an error, but the results will be different. 
 
 :::
 
@@ -242,13 +242,14 @@ The organization is clearer.
 
 BEFORE running the below chunk, what do you think it will produce?
 
+- I think that the data will focus only on counties in Delaware and there will be a new column determining if the republican party won in the county or not. It will show the county names, percentage of republican and democratic votes, and whether republicans won or not.  
 :::
 
 ```{r}
-# elections_small |> 
-#   filter(state_name == "Delaware") |> 
-#   mutate(repub_win_20 = repub_pct_20 > dem_pct_20) |> 
-#   select(county_name, repub_pct_20, dem_pct_20, repub_win_20)
+ elections_small |> 
+   filter(state_name == "Delaware") |> 
+   mutate(repub_win_20 = repub_pct_20 > dem_pct_20) |> 
+   select(county_name, repub_pct_20, dem_pct_20, repub_win_20)
 ```
 
 #### Part e {-}
@@ -257,20 +258,20 @@ BEFORE running the below chunk, what do you think it will produce?
 
 BEFORE trying, what do you think will happen if you change the order of mutate and select:
 
-1.   the results will be the same
-2.   we'll get an error
-3.   we won't get an error, but the results will be different
+2. we'll get an error
+
 
 :::
 
 ```{r}
 # Now try it. Change the order of mutate and select below.
-# elections_small |> 
-#   filter(state_name == "Delaware") |> 
-#   mutate(repub_win_20 = repub_pct_20 > dem_pct_20) |> 
-#   select(county_name, repub_pct_20, dem_pct_20, repub_win_20)
-```
+ elections_small |> 
+   filter(state_name == "Delaware") |> 
+#   select(county_name, repub_pct_20, dem_pct_20, repub_win_20) |>
+     mutate(repub_win_20 = repub_pct_20 > dem_pct_20)
 
+```
+(Did get an error, but made select a comment so I could properly publish the page.)
 
 
 ### Exercise 6: DIY Pipe Series {-}
@@ -285,6 +286,10 @@ We've now learned 4 of the 6 wrangling verbs: `select`, `filter`, `mutate`, `arr
 Show just the counties in Minnesota and their Democratic 2020 vote percentage, from highest to lowest. Your answer should have just 2 columns.
 
 ```{r}
+elections_small |>
+  filter(state_name == "Minnesota")  |>
+  select(state_name, dem_pct_20) |>
+  arrange(desc(dem_pct_20))
 ```
 
 #### Part b {-}
@@ -294,10 +299,14 @@ Create a new dataset named `mn_wi` that sorts the counties in Minnesota and Wisc
 ```{r}
 # Define the dataset
 # Only store the results once you're confident that they're correct
-
+mn_wi <- elections_small |> 
+  filter(state_name %in% c("Minnesota", "Wisconsin")) |>
+  mutate(change_dem = dem_pct_20 - dem_pct_16) |>
+  select(state_name, county_name, dem_pct_20, dem_pct_16, change_dem) |>
+  arrange(change_dem)
 
 # Check out the first 6 rows to confirm your results
-
+head(mn_wi)
 ```
 
 #### Part c {-}
@@ -305,8 +314,10 @@ Create a new dataset named `mn_wi` that sorts the counties in Minnesota and Wisc
 Construct and discuss a plot of the county-level change in Democratic vote percent in 2020 vs 2016, and how this differs between Minnesota and Wisconsin.
 
 ```{r}
+ggplot(mn_wi, aes(x = change_dem, fill = state_name)) + 
+  geom_density(alpha = 0.5)
 ```
-
+Most of the counties tended to be higher in democratic support in 2020 than in 2016, but there was a stronger overall shift in Minnesota than Wisconsin. 
 
 
 ### Exercise 7: `summarize` Demo {-}
@@ -316,21 +327,21 @@ Construct and discuss a plot of the county-level change in Democratic vote perce
 Let's talk about the last 2 verbs. `summarize()` (or equivalently `summarise()`) takes an entire data frame as input and outputs a single row with one or more summary statistics. For each chunk below, indicate what the code does.
 
 ```{r}
-# What does this do?
-# elections_small |> 
-#   summarize(median(repub_pct_20))
+# This produces the median of republican support in 2020. 
+ elections_small |> 
+   summarize(median(repub_pct_20))
 ```
 
 ```{r}
-# What does this do?
-# elections_small |> 
-#   summarize(median_repub = median(repub_pct_20))
+# This makes a new column called median_repub that shows the median support of republicans in 2020. 
+ elections_small |> 
+   summarize(median_repub = median(repub_pct_20))
 ```
 
 ```{r}
-# What does this do?
-# elections_small |> 
-#   summarize(median_repub = median(repub_pct_20), total_votes = sum(total_votes_20))
+# This shows both the median support in 2020 for republicans and the total number of votes in 2020. 
+ elections_small |> 
+   summarize(median_repub = median(repub_pct_20), total_votes = sum(total_votes_20))
 ```
 
 
@@ -341,31 +352,30 @@ Let's talk about the last 2 verbs. `summarize()` (or equivalently `summarise()`)
 Finally, `group_by()` groups the units of observation or rows of a data frame by a specified set of variables. Alone, this function doesn't change the appearance of our dataset or seem to do anything at all:
 
 ```{r}
-# elections_small |> 
-#   group_by(state_name) |> 
-#   head()
+ elections_small |> 
+   group_by(state_name) |> 
+   head()
 ```
 
 Though it does change the underlying structure of the dataset:
 
 ```{r}
 # Check out the structure before and after group_by
-# elections_small |> 
-#   class()
-# 
-# elections_small |> 
-#   group_by(state_name) |> 
-#   class()
+ elections_small |> 
+   class()
+ 
+ elections_small |> 
+   group_by(state_name) |> 
+   class()
 ```
 
 Where it really shines is in partnership with `summarize()`.
 
 ```{r}
-# What does this do?
-# (What if we didn't use group_by?)
-# elections_small |> 
-#   group_by(state_name) |> 
-#   summarize(median_repub = median(repub_pct_20), total_votes = sum(total_votes_20)) 
+# This shows the median 2020 republican percent and total votes by states. If we didn't use group_by, then it wouldn't be by state. 
+ elections_small |> 
+   group_by(state_name) |> 
+   summarize(median_repub = median(repub_pct_20), total_votes = sum(total_votes_20)) 
 ```
 
 ::: {.callout-warning title="Reflect"}
@@ -390,39 +400,32 @@ NOTE: Part a is a challenge exercise. If you get really stuck, move on to Part b
 ```{r}
 # Sort the *states* from the most to least total votes cast in 2020
 
+elections_small |> 
+  group_by(state_name) |>
+  summarize(total = sum(total_votes_20)) |>
+  arrange(desc(total))
 ```
 
 ```{r}
 # In 2020, what were the total number of votes for the Democratic candidate and the total number of votes for the Republican candidate in each *state*?
-
+elections_small |> 
+  mutate(dem_votes_20 = round(total_votes_20 * dem_pct_20 / 100), 
+         repub_votes_20 = round(total_votes_20 * repub_pct_20 / 100)) |> 
+  group_by(state_name) |> 
+  summarize(dem_total = sum(dem_votes_20),
+            repub_total = sum(repub_votes_20))
 ```
-
+5
 ```{r}
 # What states did the Democratic candidate win in 2020?
-
+elections_small |> 
+  mutate(dem_votes_20 = round(total_votes_20 * dem_pct_20 / 100), 
+         repub_votes_20 = round(total_votes_20 * repub_pct_20 / 100)) |> 
+  group_by(state_name) |> 
+  summarize(dem_total = sum(dem_votes_20),
+            repub_total = sum(repub_votes_20)) |> 
+  filter(dem_total > repub_total)
 ```
-
-#### Part b {-}
-
-```{r}
-# Sort the states from the most to least total votes cast in 2020
-# HINT: Calculate the total number of votes in each state, then sort
-
-```
-
-```{r}
-# In 2020, what were the total number of votes for the Democratic candidate and the total number of votes for the Republican candidate in each state?
-# HINT: First calculate the number of Dem and Repub votes in each *county*
-# Then group and summarize these by state
-
-```
-
-```{r}
-# What states did the Democratic candidate win in 2020?
-# HINT: Start with the results from the previous chunk, and then keep only some rows
-
-```
-
 
 
 ### Exercise 10: Practice on New Data {-}
@@ -437,38 +440,53 @@ You can find a codebook [here](https://github.com/rfordatascience/tidytuesday/tr
 
 ```{r}
 # In what years did Brazil win the World Cup?
-
+world_cup |>
+  filter(winner == "Brazil") |>
+  select(winner, year)
 ```
+
 
 ```{r}
 # What were the 6 World Cups with the highest attendance?
-
+world_cup |>
+  arrange(desc(attendance)) |>
+  head()
 ```
 
 ```{r}
 # Construct a univariate plot of goals_scored (no wrangling necessary)
 # This provides a visual summary of how the number of goals_scored varies from World Cup to World Cup
 
+ggplot(world_cup, aes(x = goals_scored)) +
+  geom_histogram(color = "white")
 ```
 
 ```{r}
 # Let's follow up the plot with some more precise numerical summaries
 # Calculate the min, median, and max number of goals_scored across all World Cups
 # NOTE: Visually compare these numerical summaries to what you observed in the plot
-
+world_cup |> 
+  summarize(min(goals_scored), median(goals_scored), max(goals_scored))
 ```
 
 ```{r}
 # Construct a bivariate plot of how the number of goals_scored in the World Cup has changed over the years
 # No wrangling necessary
-
+ggplot(world_cup, aes(x = year, y = goals_scored)) + 
+  geom_point() + 
+  geom_line()
 ```
 
 ```{r}
 # Our above summaries might be a bit misleading.
 # The number of games played at the World Cup varies.
 # Construct a bivariate plot of how the typical number of goals per game has changed over the years
+per_game <- world_cup |> 
+  mutate(goals_per_game = goals_scored / games)
 
+ggplot(per_game, aes(x = year, y = goals_per_game)) + 
+  geom_point() + 
+  geom_line()
 
 ```
 
@@ -477,5 +495,14 @@ You can find a codebook [here](https://github.com/rfordatascience/tidytuesday/tr
 ### Exercise 11: Practice on Your Data {-}
 
 Return to the TidyTuesday data you're using in Homework 3. Use your new wrangling skills to play around. What new insights can you gain?!
+
+```{r}
+agencies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-18/agencies.csv')
+
+agencies |>
+  group_by(agency_type) |>
+  filter(is_nibrs == "TRUE") |>
+  count()
+```
 
 
