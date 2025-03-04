@@ -362,3 +362,44 @@ Time to map the 2020 Republican support in each *county*.
 Need two pieces of info: 
   1. Data on elections in each county (elections_by_county)
   2. A background map of county, boundaries in the US, stored in the county_map dataset in the socviz package: 
+
+```{r}
+# Get the latitude and longitude coordinates of county boundaries
+library(socviz)
+data(county_map) 
+
+# Check it out
+head(county_map)
+```
+```{r}
+# Add 0's at the beginning of any fips_code that's fewer than 5 numbers long
+# Don't worry about the syntax
+elections_by_counties <- elections_by_counties |> 
+  mutate(county_fips = as.character(county_fips)) |> 
+  mutate(county_fips = 
+           ifelse(nchar(county_fips) == 4, paste0("0", county_fips), county_fips))
+```
+
+**Part b**
+
+```{r}
+ggplot(elections_by_counties, aes(map_id = county_fips, fill = repub_20_categories)) +
+  geom_map(map = county_map) +
+  scale_fill_manual(values = rev(brewer.pal(10, "RdBu")), name = "% Republican") +
+  expand_limits(x = county_map$long, y = county_map$lat) +
+  theme_map() +
+  theme(legend.position = "right") + 
+  coord_equal()
+```
+**Exercise 10: Play around!**
+
+```{r}
+ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
+  geom_map(map = county_map) +
+  expand_limits(x = county_map$long, y = county_map$lat) +
+  theme_map() +
+  theme(legend.position = "right") + 
+  coord_equal() + 
+  scale_fill_gradientn(name = "median rent", colors = c("white", "plum", "purple"))
+```
+
