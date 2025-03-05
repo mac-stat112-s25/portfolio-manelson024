@@ -360,13 +360,15 @@ penguins |>
 ```{r}
 # Use a shortcut to keep only species and bill-related measurements
 
-penguins
+penguins |>
+  select(species, starts_with("bill"))
 ```
 
 ```{r}
 # Use a shortcut to keep only species and the length-related characteristics
 
-
+penguins |>
+  select(species, contains("length"))
 ```
 
 \
@@ -382,19 +384,20 @@ We've done examples where we need to `filter()` by more than one variable, or `s
 # Change this code to sort the penguins by species, and then island name
 # NOTE: The first row should be an Adelie penguin living on Biscoe island
 penguins |> 
-  arrange(species)
+  arrange(species, island) |>
+  head()
 ```
 
 ```{r}
 # Change this code to count the number of male/female penguins observed for each species
 penguins |> 
-  count(species)
+  count(species, sex)
 ```
 
 ```{r}
 # Change this code to calculate the average body mass by species and sex
 penguins |> 
-  group_by(species) |> 
+  group_by(species, sex) |> 
   summarize(mean = mean(body_mass_g, na.rm = TRUE))
 
 ```
@@ -422,28 +425,29 @@ class(today)
 The `lubridate` package inside `tidyverse` contains functions that can extract various information from dates. Let's learn about some of the most common functions by applying them to `today`. For each, make a comment on what the function does
 
 ```{r}
+# Returns the year. 
 year(today)
 ```
 
 ```{r}
-# What do these lines produce / what's their difference?
+# Shows the month as either a number of an abbreviation. 
 month(today)
 month(today, label = TRUE)
 ```
 
 ```{r}
-# What does this number mean?
+# This shows the week of the year. 
 week(today)
 ```
 
 ```{r}
-# What do these lines produce / what's their difference?
+# This shows the day of the month (1-31)
 mday(today)
-yday(today)  # This is often called the "Julian day"
+yday(today)  # This is often called the "Julian day" and shows the day of the year (1-365)
 ```
 
 ```{r}
-# What do these lines produce / what's their difference?
+# This shwos the day of the week as either a number or an abbreviation. 
 wday(today)
 wday(today, label = TRUE)
 ```
@@ -451,7 +455,10 @@ wday(today, label = TRUE)
 ```{r}
 # What do the results of these 2 lines tell us?
 today >= ymd("2024-02-14")
+# Today is on or after February 14th, 2024. 
+
 today < ymd("2024-02-14")
+# Today is not before February 14th, 2024. 
 ```
 
 \
@@ -481,14 +488,20 @@ head(Birthdays)
 ### Exercise 5: Warming up {.unnumbered}
 
 ```{r}
-# How many days of data do we have for each state?
-
+# How many days of data do we have for each state? 240. 
+Birthdays |>
+  group_by(state) |>
+  summarize(count(day))
 
 # How many total births were there in this time period?
-
+Birthdays |>
+  summarize(total_births = sum(births))
 
 # How many total births were there per state in this time period, sorted from low to high?
-
+Birthdays |>
+  group_by(state) |>
+  summarize(total_birth = count(births)) |>
+  arrange(total_birth)
 
 ```
 
@@ -499,11 +512,16 @@ head(Birthdays)
 Create a new dataset named `daily_births` that includes the total number of births per day (across all states) and the corresponding day of the week, eg, Mon. NOTE: Name the column with total births so that it's easier to wrangle and plot.
 
 ```{r}
+daily_births <- Birthdays |>
+  group_by(day, wday) |>
+  summarize(total_births_daily = sum(count(births)), .groups = "drop") 
 ```
 
 Using this data, construct a plot of `births` over time, indicating the day of week.
 
 ```{r}
+ggplot(daily_births, aes(x = day, y = total_births_daily, color = wday)) +
+  geom_point()
 ```
 
 
@@ -524,22 +542,52 @@ penguins |>
 Calculate the total number of births in each month and year, eg, Jan 1969, Feb 1969, .... Label month by names not numbers, eg, Jan not 1. Then, plot the births by month and comment on what you learn.
 
 ```{r}
+Birthdays |>
+  mutate(month_name = month(make_date(year, month, 1), label = TRUE)) |>
+  group_by(year, month_name) |>
+  summarize(total_monthly = sum(births)) |>
+  ggplot(aes(y = total_monthly, x = month_name)) +
+  geom_point()
 ```
+It seems that, throughout the years, August and other summer months are highest in their birth rates, while February is generally the lowest. 
+
 
 #### Part b {.unnumbered}
 
 In 1988, calculate the total number of births per week in each state. Get rid of week "53", which isn't a complete week! Then, make a line plot of births by week for each state and comment on what you learn. For example, do you notice any seasonal trends? Are these the same in every state? Any outliers?
 
 ```{r}
+Birthdays |>
+  filter(year == "1988") |>
+  mutate(day_of_year = yday(make_date(year, month, day))) |>
+  mutate(week = ceiling(day_of_year / 7)) |>
+  filter(week <= 52) |>
+  group_by(state, week) |>
+  summarize(total_weekly_births = sum(births, na.rm = TRUE)) |>
+  ggplot(aes(x = week, y = total_weekly_births, color = state, group = state)) +
+  geom_line(alpha = 0.7)
 ```
+States with births lower than 2000 total tend to be rather stable in birth rates throughout the year. As the total number of births increases, it appears that the most babies are born around the 30-40 week mark, so in the summer months.  
+
+
 
 #### Part c {.unnumbered}
 
 Repeat the above for just Minnesota (MN) and Louisiana (LA). MN has one of the coldest climates and LA has one of the warmest. How do their seasonal trends compare? Do you think these trends are similar in other colder and warmer states? Try it!
 
 ```{r}
+Birthdays |>
+  filter(year == "1988") |>
+  mutate(day_of_year = yday(make_date(year, month, day))) |>
+  mutate(week = ceiling(day_of_year / 7)) |>
+  filter(week <= 52) |>
+  filter(state %in% c("MN", "LA")) |>
+  group_by(state, week) |>
+  summarize(total_weekly_births = sum(births, na.rm = TRUE)) |>
+  ggplot(aes(x = week, y = total_weekly_births, color = state, group = state)) +
+  geom_line(alpha = 0.7)
 ```
-
+It is interesting how the total number of weekly births have contrasting trends, as Louisiana dips from week 10-20 before peaking around week 35, while Minnesota actually peaks around week 20, with a steady decline after. Overall, Louisiana has consistently higher weekly birth totals, although the two states overlap from about weeks 15-25. 
 
 
 ### Exercise 8: More Practice {.unnumbered}
@@ -549,248 +597,22 @@ Repeat the above for just Minnesota (MN) and Louisiana (LA). MN has one of the c
 Create a dataset with only births in Massachusetts (MA) in 1979 and sort the days from those with the most births to those with the fewest.
 
 ```{r}
+Birthdays |>
+  filter(state == "MA", year == "1979") |>
+  group_by(desc(births)) |>
+  select(state, year, births, day)
 ```
 
 #### Part b {.unnumbered}
 
 Make a table showing the five states with the most births between September 9, 1979 and September 12, 1979, including the 9th and 12th. Arrange the table in descending order of births.
 
-
-## Solutions
-
-<details>
-
-<summary>Click for Solutions</summary>
-
-### Example 1: Single Verb {.unnumbered}
-
 ```{r}
-ggplot(penguins, aes(y = body_mass_g, x = bill_length_mm, color = species)) + 
-  geom_point() + 
-  facet_wrap(~ sex)
-
+Birthdays |> 
+  group_by(state) |>
+  filter(date >= "1979-10-09" & date <= "1979-10-12") |>
+  summarize(total = sum(births)) |>
+  arrange(desc(total)) |>
+  head(5)
 ```
 
-\
-\
-\
-\
-
-
-
-```{r}
-# Get data on only Adelie penguins that weigh more than 4700g
-penguins |> 
-  filter(species == "Adelie", body_mass_g > 4700)
-
-# Get data on penguin body mass only
-# Show just the first 6 rows
-penguins |> 
-  select(body_mass_g) |> 
-  head()
-
-# Sort the penguins from smallest to largest body mass
-# Show just the first 6 rows
-penguins |> 
-  arrange(body_mass_g) |> 
-  head()
-
-# Calculate the average body mass across all penguins
-# Note: na.rm = TRUE removes the NAs from the calculation
-penguins |> 
-  summarize(mean = mean(body_mass_g, na.rm = TRUE))
-
-# Calculate the average body mass by species
-penguins |> 
-  group_by(species) |> 
-  summarize(mean = mean(body_mass_g, na.rm = TRUE))
-
-# Create a new column that records body mass in kilograms, not grams
-# NOTE: there are 1000 g in 1 kg
-# Show just the first 6 rows
-penguins |> 
-  mutate(body_mass_kg = body_mass_g/1000) |> 
-  head()
-
-```
-
-\
-\
-\
-\
-
-
-
-```{r}
-ggplot(penguins, aes(x = species)) + 
-  geom_bar()
-
-penguins |> 
-  group_by(species) |> 
-  summarize(n())
-
-penguins |> 
-  count(species)
-```
-
-
-
-### Example 2: Multiple Verbs {.unnumbered}
-
-```{r}
-# Sort Gentoo penguins from biggest to smallest with respect to their 
-# bill length in cm (there are 10 mm in a cm)
-penguins |> 
-  filter(species == "Gentoo") |> 
-  mutate(bill_length_cm = bill_length_mm / 10) |> 
-  arrange(desc(bill_length_cm))
-
-# Sort the species from smallest to biggest with respect to their 
-# average bill length in cm
-penguins |> 
-  mutate(bill_length_cm = bill_length_mm / 10) |> 
-  group_by(species) |> 
-  summarize(mean_bill_length = mean(bill_length_cm, na.rm = TRUE)) |> 
-  arrange(desc(mean_bill_length))
-```
-
-
-
-### Example 3: Interpret Code {.unnumbered}
-
-
-
-### Exercise 1: More Filtering {.unnumbered}
-
-#### Part a {.unnumbered}
-
-```{r}
-# Create a dataset with just Adelie and Chinstrap using %in%
-# Pipe this into `count(species)` to confirm that you only have these 2 species
-penguins |>
-  filter(species %in% c("Adelie", "Chinstrap")) |>
-  count(species)
-```
-
-```{r}
-# Create a dataset with just Adelie and Chinstrap using !=
-# Pipe this into `count(species)` to confirm that you only have these 2 species
-penguins |>
-  filter(species != "Gentoo") |>
-  count(species)
-```
-
-#### Part b {.unnumbered}
-
-#### Part c {.unnumbered}
-
-It might get rid of data points even if they have complete information on the variables we need, just because they're missing info on variables we don't need.
-
-
-### Exercise 2: More selecting {.unnumbered}
-
-```{r}
-# First: recall the variable names
-names(penguins)
-```
-
-```{r}
-# Use a shortcut to keep everything but the year and island variables
-penguins |> 
-  select(-year, -island)
-```
-
-```{r}
-# Use a shortcut to keep only species and the penguin characteristics measured in mm
-penguins |> 
-  select(species, ends_with("mm"))
-```
-
-```{r}
-# Use a shortcut to keep only species and bill-related measurements
-penguins |> 
-  select(species, starts_with("bill"))
-```
-
-```{r}
-# Use a shortcut to keep only species and the length-related characteristics
-penguins |> 
-  select(species, contains("length"))
-```
-
-
-### Exercise 3: Arranging, counting, & grouping by multiple variables {.unnumbered}
-
-```{r}
-# Change this code to sort the penguins by species, and then island name
-# NOTE: The first row should be an Adelie penguin living on Biscoe island
-penguins |> 
-  arrange(species, island) |> 
-  head()
-```
-
-```{r}
-# Change this code to count the number of male/female penguins observed for each species
-penguins |> 
-  count(species, sex)
-```
-
-```{r}
-# Change this code to calculate the average body mass by species and sex
-penguins |> 
-  group_by(species, sex) |> 
-  summarize(mean = mean(body_mass_g, na.rm = TRUE))
-
-```
-
-
-### Exercise 4: Dates {.unnumbered}
-
-```{r}
-# Get today's date
-as.Date(today())
-
-# Let's store this as "today" so we can work with it below
-today <- as.Date(today())
-
-# Check out the class of this object
-class(today)
-```
-
-```{r}
-# Records just the 4-digit year
-year(today)
-```
-
-```{r}
-# Today's month, as a number or label
-month(today)
-month(today, label = TRUE)
-```
-
-```{r}
-# This is the week of the year (1-52)
-week(today)
-```
-
-```{r}
-# Day of the month (1-31) and day of the year (1-366)
-mday(today)
-yday(today)  # This is often called the "Julian day"
-```
-
-```{r}
-# Day of the week as a number or label
-wday(today)
-wday(today, label = TRUE)
-```
-
-```{r}
-# today is on or after Feb 14, 2024
-today >= ymd("2024-02-14")
-# today is not before Feb 14, 2024
-today < ymd("2024-02-14")
-```
-
-
-</details>
