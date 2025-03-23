@@ -218,8 +218,6 @@ penguins |>
 
 ## Exercises Part 1: Same Verbs, New Tricks
 
-{{< include activity-instructions.qmd >}}
-
 ### Exercise 1: More Filtering {.unnumbered}
 
 Recall the "logical comparison operators" we can use to `filter()` our data:

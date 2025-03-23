@@ -228,7 +228,6 @@ more_food |>
 
 ## Exercises
 
-{{< include activity-instructions.qmd >}}
 
 ### Exercise 1: What's the problem? {.unnumbered}
 

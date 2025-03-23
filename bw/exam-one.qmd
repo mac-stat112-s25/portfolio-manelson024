@@ -1,0 +1,133 @@
+---
+title: "Exam One"
+format: html
+---
+
+# Load Packages
+
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(rnaturalearth)
+library(sf)
+library(maps)
+```
+
+# Get Data
+
+```{r}
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption 
+# The first line loads the data from Tidy Tuesday into R. 
+# Then, the second line pulls the food consumption data set and stores it into 'fc'.  
+```
+
+# Understand Data
+
+```{r}
+dim(fc)
+str(fc)
+head(fc)
+```
+# Observations 
+
+- The units of observation are individual categories of food within separate countries. 
+- There are 11 food categories. 
+- There are 130 countries. 
+
+# Understand 
+*Grand Research Question*
+What does the consumption of each food category in each country look like? 
+- This question involves 3 variables (one numerical, two categorical). 
+
+*Country* 
+```{r, fig.cap = "Country Visualization"}
+#| fig-height: 13
+#| fig-width: 15
+
+ggplot(fc, aes(y = country)) + 
+  geom_bar(color = "violetred", fill = "orchid2") + 
+  labs(y = "Country", x = "Count", title = "Country Distribution")
+```
+- Each country has a count of 11 because there are 11 food categories. 
+
+
+*Food Category* 
+```{r, fig.cap = "Food Category Visualization"}
+#| fig-height: 9
+#| fig-width: 15
+
+ggplot(fc, aes(y = food_category)) + 
+  geom_bar(fill = "slateblue", color = "royalblue4") + 
+  labs(x = "Count", y = "Food Category", title = "Food Category Distribution")
+```
+- Since there are 130 countries, each category of food has a count of 130. 
+
+
+*Consumption* 
+```{r, fig.cap = "Consumption Visualization"}
+#| fig-height: 5
+#| fig-width: 10
+
+ggplot(fc, aes(x = consumption)) + 
+  geom_density(color = "violetred", fill = "orchid2") + 
+  labs(x = "Consumption", y = "Density (kg/person/year)", title = "Consumption Distribution")
+```
+- Consumption tends to be around 0 to 50 kg/person/year, but some observations get to as high as 450 kg/person/year. It is hard to say much without breaking it down by country, food category, or both. 
+
+*Consumption + Category* 
+```{r, fig.cap = "Consumption and Food Category Visualization"}
+#| fig-height: 12
+#| fig-width: 16
+
+ggplot(fc, aes(x = consumption, fill = food_category)) +
+  geom_histogram() +
+  facet_wrap(~food_category) +
+  scale_fill_viridis_d() + 
+  labs(x = "Consumption (kg/person/year)", y = "Density", fill = "Food Category", title = "Consumption by Food Category") 
+```
+
+- It appears that the soybean category is on the lower end of consumption, with many observations close to or equaling zero. 
+- The milk category has the largest range, reaching all the way to around 450 kg/person/year. Wheat/wheat products and rice also have a relatively wide range, reaching a consumption of about 200. Fish has an outlier near 200 as well. 
+- Most of the categories seem to stay in the range of about 0 to 50 kg/person/year. 
+
+
+*Consumption + Country* 
+```{r, fig.cap = "Consumption and Country Visualization"}
+#| fig-height: 12
+#| fig-width: 23
+
+ggplot(fc, aes(x = consumption, fill = country)) +
+  geom_histogram() +
+  facet_wrap(~country) +
+  scale_fill_viridis_d() + 
+  labs(x = "Consumption (kg/person/year)", y = "Density", fill = "Country", title = "Consumption by Country") 
+```
+
+- All countries are right-skewed in their consumption, but some have lower peaks and a longer range than others, such as the USA, Israel, Slovenia, and others. Overall, most observations across countries tend to be on the lower end of consumption. 
+
+# Answering Grand RQ 
+
+```{r, fig.cap = "Grand Research Question"}
+#| fig-height: 20
+#| fig-width: 23
+
+ggplot(fc, aes(x = food_category, y = country, fill = consumption)) +
+  geom_tile() +
+  scale_fill_viridis_c() + 
+  labs(x = "Food Category", y = "Country", fill = "Consumption (kg/person/year)", title = "Consumption by Country and Food Category") +
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    axis.title = element_text(size = 16),
+    axis.text = element_text(size = 12),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
+- There are clear trends that are consistent in most of the countries shown. Milk (including cheese) products are consumed the most overall, with most countries reaching at least 200 kg/person/year and some even higher. Finland notably uses more than 400 kg/person/year. 
+- The second most popular food category is wheat and wheat products. They seem to range between 100 and 200 kg/person/year. Tunisia seems to use this category the most, at about 200 kg/person/year. 
+- Wheat and wheat products is followed by rice. Bangladesh seems to use it the most at a little lower than 200 kg/person/year.
+- Soybeans is used the least out of all of the food categories. It maybe reaches around 25 or so kg/person/year, but mostly stays on the lowest end of the spectrum. 
+- All of the other food categories are relatively similar. Lamb, goat, and nuts (including peanut butter) are on the lower end, but they are all stay around 0 to 50 kg/person/year, with few exceptions (fish reaches about 200 in Maldives). 
+
+

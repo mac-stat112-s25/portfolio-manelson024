@@ -127,3 +127,96 @@ ggplot(woll, aes(x = raintoday)) +
 (COME BACK TO)
 
 
+
+
+##Homework 6 Opt Exercises for Quiz Studying
+
+### Optional Exercise: funding time
+
+NOTE: This exercise won't be graded, but it is strongly recommended as additional practice for the quiz.
+
+How many days does it take borrowers to get a loan funded? Let's explore the `days_to_fund` variable in the `loans_2`.
+
+#### Part a
+
+Construct a univariate visualization of `days_to_fund`.
+
+```{r}
+
+```
+
+#### Part b
+
+Construct a plot of `days_to_fund` (y-axis) vs `funded_amount` (x-axis) for each loan in `loans_2`.
+
+```{r}
+
+```
+
+#### Part c
+
+Construct a plot of `days_to_fund` (y-axis) vs `funded_amount` (x-axis) in each `countries.region`. Don't represent each loan on this plot. Rather, include curves to represent the trends in each region.
+
+```{r}
+
+```
+
+#### Part d
+
+Summarize, in words, some takeaway messages from parts a-c about how long it takes to get a loan funded.
+
+
+
+### Optional Exercise: loan status
+
+NOTE: This exercise won't be graded, but it is highly recommended as additional practice for the quiz.
+
+The `status` variable in `loans_2` indicates the status of a loan:
+
+```{r}
+# Check out a table summary after you've defined loans_2
+# loans_2 %>% 
+#   count(status)
+```
+
+Let's focus here on the patterns in loans that were paid back and those that were defaulted, i.e. not paid back.
+
+#### Part a
+
+Define a new dataset, `defaults`, that only includes loans that were either defaulted or paid.
+
+```{r}
+# Define defaults
+
+# Confirm that defaults has 7010 rows and 13 columns
+
+```
+
+#### Part b
+
+Using `defaults`, construct a visualization of the relationship between the funded amount and status of a loan.
+
+```{r}
+
+```
+
+#### Part c
+
+Define a new dataset with four columns:
+
+-   `partner_id`
+-   number of defaulted loans through that partner
+-   number of loans completely paid back through that partner
+-   percentage of loans defaulted
+
+Sort your table from highest default percentage to lowest, and print out only those with at least a 50% default percentage. HINT: You'll have to reshape the data in this process.
+
+```{r}
+
+```
+
+#### Part d
+
+Provide some take-away messages about loan defaults using your results in parts a-d.
+
+
