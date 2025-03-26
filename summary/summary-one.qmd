@@ -3,3 +3,12 @@ title: "summary"
 format: html
 ---
 
+```{r}
+library(magick)
+
+img <- image_read("C:/Users/bunny/OneDrive/Pictures/Screenshots/scanned.png")
+
+print(img)
+
+```
+
