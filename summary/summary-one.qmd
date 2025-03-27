@@ -1,14 +1,9 @@
 ---
-title: "summary"
+title: "My Project"
 format: html
 ---
 
-```{r}
-library(magick)
+## View PDF
 
-img <- image_read("C:/Users/bunny/OneDrive/Pictures/Screenshots/scanned.png")
-
-print(img)
-
-```
-
+<iframe src="https://drive.google.com/file/d/157k6_siEGDcqr-xVeHichbV79H8ub_Ox/preview" 
+        width="100%" height="600px" style="border:none;"></iframe>
