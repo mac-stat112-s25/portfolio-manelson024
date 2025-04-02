@@ -362,6 +362,7 @@ library("tidytuesdayR")
 tuesdata <- tidytuesdayR::tt_load('2024-01-30')
 predictions <- tuesdata$predictions
 ```
+
 ```{r}
 predictions <- predictions |>
   filter(!is.na(shadow)) |>
