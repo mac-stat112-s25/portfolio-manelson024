@@ -1,6 +1,21 @@
 ---
 title: "Notes"
 ---
+# Solo Project Notes 
+
+Need 
+- *geometry variable* - describing boundary of areas wanting to color 
+  - ggplot2
+- *variable* to color areas based on its values 
+  - sf 
+  
+Example: 
+Vietnam 
+1) Search natural earth package and find Vietnam shapefile 
+2) Find package associated with Vietnam 
+
+On the assignment page for solo project is where to find potential datasets. 
+There's a video to help describe the sf package and plotting cloropleth maps. 
 
 # 4.1 Review - Bivariate Viz 
 

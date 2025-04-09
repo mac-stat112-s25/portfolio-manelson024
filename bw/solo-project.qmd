@@ -1,0 +1,80 @@
+---
+title: "solo-project"
+format: html
+---
+
+```{r}
+# Load packages. 
+library(tidyverse)
+library(dplyr)
+library(sf)
+library(gplots)
+library(ggplot2)
+library(maps)
+library(RColorBrewer)
+library(mosaic)
+library(rnaturalearth)
+library(ggthemes)
+library(tigris)
+```
+
+
+```{r}
+arrests_data <- read_csv("C:\\Users\\bunny\\Downloads\\Arrests_20250402.csv")
+head(arrests)
+
+arrests_map <- read_csv("C:\\Users\\bunny\\Downloads\\Crimes_-_One_year_prior_to_present_20250403.csv")
+head(arrests_map)
+```
+```{r}
+arrests <- arrests_map |>
+  semi_join(arrests_data, join_by(`CASE#` == `CASE NUMBER`))
+
+arrests <- arrests |>
+  left_join(arrests_data, join_by(`CASE#` == `CASE NUMBER`))
+```
+
+```{r}
+chicago_neighborhood <- st_read("https://data.cityofchicago.org/resource/igwz-8jzy.geojson")
+```
+```{r}
+arrests_sf <- st_as_sf(arrests, coords = c("LONGITUDE", "LATITUDE"), crs = 4326)
+arrests_sf <- st_transform(arrests_sf, st_crs(chicago_neighborhood))
+
+arrests_by_neighborhood <-  arrests_by_neighborhood
+  st_join(arrests_sf, chicago_neighborhood) |>
+  count(community) 
+
+chicago_with_arrests <- chicago_with_arrests 
+  left_join(chicago_neighborhood, st_drop_geometry(arrests_by_neighborhood), by = "community")
+
+ggplot(chicago_with_arrests) +
+  geom_sf(aes(fill = n)) +
+  scale_fill_viridis_c() +
+  theme_map()
+```
+
+```{r}
+arrests_sf <- arrests_sf |>
+  st_join(chicago_neighborhood)
+
+arrests_sf |>
+  group_by(community) |>
+  summarize(
+        Product = first(names(sort(table(community), decreasing = TRUE))),
+        Store = first(names(sort(table(Store), decreasing = TRUE))))
+```
+
+
+```{r}
+ggplot(chicago) +
+  geom_sf() +
+  geom_point(
+    data = arrests, 
+    aes(x = LONGITUDE, y = LATITUDE, color = RACE),
+    alpha = 0.5, size = 0.5
+  ) +
+  scale_color_viridis_d() +
+  theme_map()
+```
+
