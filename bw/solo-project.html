@@ -332,29 +332,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] "/Users/mnelso11/Documents/GitHub/portfolio-manelson024-new/bw"</code></pre>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>arrests_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Arrests_20250414.csv"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># head(arrests_data)</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a>arrests_map <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Crimes_-_One_year_prior_to_present_20250421.csv"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># head(arrests_map)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>arrests_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Arrests_20250414.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># head(arrests_data)</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>arrests_map <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Crimes_-_One_year_prior_to_present_20250421.csv"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># head(arrests_map)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>arrests <span class="ot">&lt;-</span> arrests_map <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">semi_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a>arrests <span class="ot">&lt;-</span> arrests <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">left_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>arrests <span class="ot">&lt;-</span> arrests_map <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">semi_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>arrests <span class="ot">&lt;-</span> arrests <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">left_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>chicago_neighborhood <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"https://data.cityofchicago.org/resource/igwz-8jzy.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>chicago_neighborhood <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"https://data.cityofchicago.org/resource/igwz-8jzy.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `igwz-8jzy' from data source 
   `https://data.cityofchicago.org/resource/igwz-8jzy.geojson' 
@@ -367,72 +361,72 @@ Geodetic CRS:  WGS 84</code></pre>
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>arrests_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arrests, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"LONGITUDE"</span>, <span class="st">"LATITUDE"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>arrests_sf <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(arrests_sf, <span class="fu">st_crs</span>(chicago_neighborhood))</span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a>arrests_by_neighborhood <span class="ot">&lt;-</span>  arrests_sf <span class="sc">|&gt;</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">st_join</span>(chicago_neighborhood) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">count</span>(community) </span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a>arrests_by_neighborhood_no_geom <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(arrests_by_neighborhood)</span>
-<span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a>chicago_with_arrests <span class="ot">&lt;-</span> chicago_neighborhood <span class="sc">|&gt;</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a>  <span class="fu">left_join</span>(arrests_by_neighborhood_no_geom, <span class="at">by =</span> <span class="st">"community"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>arrests_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arrests, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"LONGITUDE"</span>, <span class="st">"LATITUDE"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>arrests_sf <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(arrests_sf, <span class="fu">st_crs</span>(chicago_neighborhood))</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>arrests_by_neighborhood <span class="ot">&lt;-</span>  arrests_sf <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">st_join</span>(chicago_neighborhood) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">count</span>(community) </span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>arrests_by_neighborhood_no_geom <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(arrests_by_neighborhood)</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a>chicago_with_arrests <span class="ot">&lt;-</span> chicago_neighborhood <span class="sc">|&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>  <span class="fu">left_join</span>(arrests_by_neighborhood_no_geom, <span class="at">by =</span> <span class="st">"community"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(chicago_with_arrests) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> n)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Arrests in Chicago by Neighborhood"</span>, </span>
-<span id="cb9-5"><a href="#cb9-5"></a>       <span class="at">caption =</span> <span class="st">"Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(chicago_with_arrests) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Arrests in Chicago by Neighborhood"</span>, </span>
+<span id="cb7-5"><a href="#cb7-5"></a>       <span class="at">caption =</span> <span class="st">"Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset"</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="solo-project_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" alt="A choropleth map demonstrating the total number of arrests in each Chicago neighborhood, using metadata from 2014 through the beginning of April, 2025. It seems that the least number of arrests have taken place at the most northern and southern points of the city, with a count of approximately >500. One neighborhood in the northwest of Chicago reached the highest number of arrests, at about 2000." width="768"></p>
+<figure class="figure"><p><img src="solo-project_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="A choropleth map demonstrating the total number of arrests in each Chicago neighborhood, using metadata from 2014 through the beginning of April, 2025. It seems that the least number of arrests have taken place at the most northern and southern points of the city, with a count of approximately >500. One neighborhood in the northwest of Chicago reached the highest number of arrests, at about 2000." width="768"></p>
 <figcaption>The amount of arrests by Chicago neighborhood from 2014 to April 2025.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Reflection:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span>))</span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span>, </span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="st">"Black"</span> <span class="ot">=</span> <span class="st">"BLACK"</span>,</span>
-<span id="cb10-7"><a href="#cb10-7"></a>    <span class="st">"White"</span> <span class="ot">=</span> <span class="st">"WHITE"</span>,</span>
-<span id="cb10-8"><a href="#cb10-8"></a>    <span class="st">"White Hispanic"</span> <span class="ot">=</span> <span class="st">"WHITE HISPANIC"</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a>  ))</span>
-<span id="cb10-10"><a href="#cb10-10"></a></span>
-<span id="cb10-11"><a href="#cb10-11"></a>arrests_with_neighborhood <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a>  <span class="fu">st_join</span>(chicago_neighborhood)</span>
-<span id="cb10-13"><a href="#cb10-13"></a></span>
-<span id="cb10-14"><a href="#cb10-14"></a>race_by_neighborhood <span class="ot">&lt;-</span> arrests_with_neighborhood <span class="sc">|&gt;</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a>  <span class="fu">count</span>(community, <span class="st">`</span><span class="at">RACE</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a>  <span class="fu">group_by</span>(community) <span class="sc">|&gt;</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb10-20"><a href="#cb10-20"></a></span>
-<span id="cb10-21"><a href="#cb10-21"></a>chicago_race_map <span class="ot">&lt;-</span> chicago_neighborhood <span class="sc">|&gt;</span></span>
-<span id="cb10-22"><a href="#cb10-22"></a>  <span class="fu">left_join</span>(race_by_neighborhood, <span class="at">by =</span> <span class="st">"community"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span>))</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">RACE</span><span class="st">`</span>, </span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="st">"Black"</span> <span class="ot">=</span> <span class="st">"BLACK"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    <span class="st">"White"</span> <span class="ot">=</span> <span class="st">"WHITE"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>    <span class="st">"White Hispanic"</span> <span class="ot">=</span> <span class="st">"WHITE HISPANIC"</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  ))</span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a>arrests_with_neighborhood <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>  <span class="fu">st_join</span>(chicago_neighborhood)</span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a>race_by_neighborhood <span class="ot">&lt;-</span> arrests_with_neighborhood <span class="sc">|&gt;</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>  <span class="fu">count</span>(community, <span class="st">`</span><span class="at">RACE</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>  <span class="fu">group_by</span>(community) <span class="sc">|&gt;</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb8-20"><a href="#cb8-20"></a></span>
+<span id="cb8-21"><a href="#cb8-21"></a>chicago_race_map <span class="ot">&lt;-</span> chicago_neighborhood <span class="sc">|&gt;</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>  <span class="fu">left_join</span>(race_by_neighborhood, <span class="at">by =</span> <span class="st">"community"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(chicago_race_map) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">RACE</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="at">title =</span> <span class="st">"Most Commonly Race Arrested by Chicago Neighborhood"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6"></a>    <span class="at">caption =</span> <span class="st">"Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7"></a>    <span class="at">fill =</span> <span class="st">"Race"</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(chicago_race_map) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">RACE</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="at">title =</span> <span class="st">"Most Commonly Race Arrested by Chicago Neighborhood"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="at">caption =</span> <span class="st">"Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="at">fill =</span> <span class="st">"Race"</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="solo-project_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" alt="A choropleth map demonstrating the most commonly arrested race by each neighborhood. Black people appear to be the most arrested in the majority of neighborhoods, followed by White Hispanic people and White people. Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination." width="768"></p>
+<figure class="figure"><p><img src="solo-project_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="A choropleth map demonstrating the most commonly arrested race by each neighborhood. Black people appear to be the most arrested in the majority of neighborhoods, followed by White Hispanic people and White people. Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination." width="768"></p>
 <figcaption>Most commonly arrested race in each Chicago neighborhood.</figcaption></figure>
 </div>
 </div>
@@ -440,53 +434,53 @@ Geodetic CRS:  WGS 84</code></pre>
 <section id="reflection" class="level2"><h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
 <p>Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination. It is clear that Black people are disproportionately arrested, as the majority of neighborhoods arrest Black people the most despite making up approximately 28% of the population. White Hispanic people were arrested the second most in Chicago neighborhoods, mostly on the West and Northwest parts of the city. White people were arrested the third most, and only in the Northwest area of Chicago. This choropleth map is only a beginning exploratory measure, and further analysis should be done to determine the intricacies of Chicago’s racist behaviors.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># arrests_sf |&gt; </span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#  count(`CHARGES DESCRIPTION`, sort = TRUE) |&gt; </span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="co">#  head(20)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># arrests_sf |&gt; </span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#  count(`CHARGES DESCRIPTION`, sort = TRUE) |&gt; </span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#  head(20)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>))</span>
-<span id="cb13-3"><a href="#cb13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>, </span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="st">"Battery (Physical Contact)"</span> <span class="ot">=</span> <span class="st">"BATTERY - MAKE PHYSICAL CONTACT |  |  |"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7"></a>    <span class="st">"Obstructing Driver on Highway"</span> <span class="ot">=</span> <span class="st">"CRIM TRESPASS TO STATE LAND | DISORDERLY CONDUCT - BREACH OF PEACE | IVC - OBSTRUCTING DRIVER ON HIGHWAY |"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8"></a>    <span class="st">"Criminal Trespass to Land"</span> <span class="ot">=</span> <span class="st">"CRIMINAL TRESPASS TO LAND |  |  |"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9"></a>    <span class="st">"Domestic Battery (Bodily Harm)"</span> <span class="ot">=</span> <span class="st">"DOMESTIC BATTERY/BODILY HARM |  |  |"</span>,</span>
-<span id="cb13-10"><a href="#cb13-10"></a>    <span class="st">"Domestic Battery (Physical Contact)"</span> <span class="ot">=</span> <span class="st">"DOMESTIC BTRY/PHYSICAL CONTACT |  |  |"</span>,</span>
-<span id="cb13-11"><a href="#cb13-11"></a>    <span class="st">"Drug Possession"</span> <span class="ot">=</span> <span class="st">"PCS - POSSESSION - POSS AMT CON SUB EXCEPT (A)(D) |  |  |"</span>,</span>
-<span id="cb13-12"><a href="#cb13-12"></a>    <span class="st">"Prostitution"</span> <span class="ot">=</span> <span class="st">"PROSTITUTION |  |  |"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13"></a>    <span class="st">"Retail Theft (&lt; $300)"</span> <span class="ot">=</span> <span class="st">"RETAIL THEFT/DISP MERCH/&lt;$300 |  |  |"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14"></a>    <span class="st">"Violation of Protection Order"</span> <span class="ot">=</span> <span class="st">"VIOLATE ORDER PROTECTION |  |  |"</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a>  ))</span>
-<span id="cb13-16"><a href="#cb13-16"></a></span>
-<span id="cb13-17"><a href="#cb13-17"></a>charges_by_neighborhood <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span></span>
-<span id="cb13-18"><a href="#cb13-18"></a>  <span class="fu">st_join</span>(chicago_neighborhood) <span class="sc">|&gt;</span></span>
-<span id="cb13-19"><a href="#cb13-19"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
-<span id="cb13-20"><a href="#cb13-20"></a>  <span class="fu">count</span>(community, <span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-21"><a href="#cb13-21"></a>  <span class="fu">group_by</span>(community) <span class="sc">|&gt;</span></span>
-<span id="cb13-22"><a href="#cb13-22"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb13-23"><a href="#cb13-23"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb13-24"><a href="#cb13-24"></a></span>
-<span id="cb13-25"><a href="#cb13-25"></a>chicago_charges_map <span class="ot">&lt;-</span> chicago_neighborhood <span class="sc">|&gt;</span></span>
-<span id="cb13-26"><a href="#cb13-26"></a>  <span class="fu">left_join</span>(charges_by_neighborhood, <span class="at">by =</span> <span class="st">"community"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>))</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>arrests_sf <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span> </span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>, </span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="st">"Battery (Physical Contact)"</span> <span class="ot">=</span> <span class="st">"BATTERY - MAKE PHYSICAL CONTACT |  |  |"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="st">"Obstructing Driver on Highway"</span> <span class="ot">=</span> <span class="st">"CRIM TRESPASS TO STATE LAND | DISORDERLY CONDUCT - BREACH OF PEACE | IVC - OBSTRUCTING DRIVER ON HIGHWAY |"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="st">"Criminal Trespass to Land"</span> <span class="ot">=</span> <span class="st">"CRIMINAL TRESPASS TO LAND |  |  |"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9"></a>    <span class="st">"Domestic Battery (Bodily Harm)"</span> <span class="ot">=</span> <span class="st">"DOMESTIC BATTERY/BODILY HARM |  |  |"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10"></a>    <span class="st">"Domestic Battery (Physical Contact)"</span> <span class="ot">=</span> <span class="st">"DOMESTIC BTRY/PHYSICAL CONTACT |  |  |"</span>,</span>
+<span id="cb11-11"><a href="#cb11-11"></a>    <span class="st">"Drug Possession"</span> <span class="ot">=</span> <span class="st">"PCS - POSSESSION - POSS AMT CON SUB EXCEPT (A)(D) |  |  |"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="st">"Prostitution"</span> <span class="ot">=</span> <span class="st">"PROSTITUTION |  |  |"</span>,</span>
+<span id="cb11-13"><a href="#cb11-13"></a>    <span class="st">"Retail Theft (&lt; $300)"</span> <span class="ot">=</span> <span class="st">"RETAIL THEFT/DISP MERCH/&lt;$300 |  |  |"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14"></a>    <span class="st">"Violation of Protection Order"</span> <span class="ot">=</span> <span class="st">"VIOLATE ORDER PROTECTION |  |  |"</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a>  ))</span>
+<span id="cb11-16"><a href="#cb11-16"></a></span>
+<span id="cb11-17"><a href="#cb11-17"></a>charges_by_neighborhood <span class="ot">&lt;-</span> arrests_sf <span class="sc">|&gt;</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a>  <span class="fu">st_join</span>(chicago_neighborhood) <span class="sc">|&gt;</span></span>
+<span id="cb11-19"><a href="#cb11-19"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a>  <span class="fu">count</span>(community, <span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>  <span class="fu">group_by</span>(community) <span class="sc">|&gt;</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb11-23"><a href="#cb11-23"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb11-24"><a href="#cb11-24"></a></span>
+<span id="cb11-25"><a href="#cb11-25"></a>chicago_charges_map <span class="ot">&lt;-</span> chicago_neighborhood <span class="sc">|&gt;</span></span>
+<span id="cb11-26"><a href="#cb11-26"></a>  <span class="fu">left_join</span>(charges_by_neighborhood, <span class="at">by =</span> <span class="st">"community"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(chicago_charges_map) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    <span class="at">title =</span> <span class="st">"Most Common Charges by Chicago Neighborhood"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>    <span class="at">caption =</span> <span class="st">"Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>    <span class="at">fill =</span> <span class="st">"Charge"</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(chicago_charges_map) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">CHARGES DESCRIPTION</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    <span class="at">title =</span> <span class="st">"Most Common Charges by Chicago Neighborhood"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="at">caption =</span> <span class="st">"Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7"></a>    <span class="at">fill =</span> <span class="st">"Charge"</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="solo-project_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="A choropleth map to compare the charge descriptions of each Chicago neighborhood. It looks as if Domestic Battery (Bodily Harm) is the most common and spread out charge, while Retail Theft (>$300) is the next most common charge description, although it is mostly concentrated in the northeast of Chicago. There are nine charge descriptions total, which reflect the most common types of crimes of each neighborhood, although the other seven charges are only the most common in one or so neighborhoods." width="864"></p>
+<figure class="figure"><p><img src="solo-project_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" alt="A choropleth map to compare the charge descriptions of each Chicago neighborhood. It looks as if Domestic Battery (Bodily Harm) is the most common and spread out charge, while Retail Theft (>$300) is the next most common charge description, although it is mostly concentrated in the northeast of Chicago. There are nine charge descriptions total, which reflect the most common types of crimes of each neighborhood, although the other seven charges are only the most common in one or so neighborhoods." width="864"></p>
 <figcaption>Choropleth map of the most common charge description within each Chicago neighborhood.</figcaption></figure>
 </div>
 </div>
@@ -1114,183 +1108,180 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> "Solo Project"</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="an">execute:</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">  echo: true</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="co">  warning: false</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co">  error: false</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co">  code-fold: true</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="co">---</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="in">```{r}</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="co"># Load packages. </span></span>
-<span id="cb15-14"><a href="#cb15-14"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb15-15"><a href="#cb15-15"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="fu">library</span>(sf)</span>
-<span id="cb15-17"><a href="#cb15-17"></a><span class="fu">library</span>(gplots)</span>
-<span id="cb15-18"><a href="#cb15-18"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb15-19"><a href="#cb15-19"></a><span class="fu">library</span>(maps)</span>
-<span id="cb15-20"><a href="#cb15-20"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb15-21"><a href="#cb15-21"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb15-22"><a href="#cb15-22"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb15-23"><a href="#cb15-23"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb15-24"><a href="#cb15-24"></a><span class="fu">library</span>(tigris)</span>
-<span id="cb15-25"><a href="#cb15-25"></a><span class="in">```</span></span>
-<span id="cb15-26"><a href="#cb15-26"></a></span>
-<span id="cb15-29"><a href="#cb15-29"></a><span class="in">```{r}</span></span>
-<span id="cb15-30"><a href="#cb15-30"></a><span class="fu">getwd</span>()</span>
-<span id="cb15-31"><a href="#cb15-31"></a><span class="in">```</span></span>
-<span id="cb15-32"><a href="#cb15-32"></a></span>
-<span id="cb15-33"><a href="#cb15-33"></a></span>
-<span id="cb15-36"><a href="#cb15-36"></a><span class="in">```{r}</span></span>
-<span id="cb15-37"><a href="#cb15-37"></a>arrests_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Arrests_20250414.csv"</span>)</span>
-<span id="cb15-38"><a href="#cb15-38"></a><span class="co"># head(arrests_data)</span></span>
-<span id="cb15-39"><a href="#cb15-39"></a></span>
-<span id="cb15-40"><a href="#cb15-40"></a>arrests_map <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Crimes_-_One_year_prior_to_present_20250421.csv"</span>)</span>
-<span id="cb15-41"><a href="#cb15-41"></a><span class="co"># head(arrests_map)</span></span>
-<span id="cb15-42"><a href="#cb15-42"></a><span class="in">```</span></span>
-<span id="cb15-43"><a href="#cb15-43"></a></span>
-<span id="cb15-44"><a href="#cb15-44"></a></span>
-<span id="cb15-45"><a href="#cb15-45"></a></span>
-<span id="cb15-48"><a href="#cb15-48"></a><span class="in">```{r}</span></span>
-<span id="cb15-49"><a href="#cb15-49"></a>arrests <span class="ot">&lt;-</span> arrests_map <span class="sc">|&gt;</span></span>
-<span id="cb15-50"><a href="#cb15-50"></a>  <span class="fu">semi_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span>
-<span id="cb15-51"><a href="#cb15-51"></a></span>
-<span id="cb15-52"><a href="#cb15-52"></a>arrests <span class="ot">&lt;-</span> arrests <span class="sc">|&gt;</span></span>
-<span id="cb15-53"><a href="#cb15-53"></a>  <span class="fu">left_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span>
-<span id="cb15-54"><a href="#cb15-54"></a><span class="in">```</span></span>
-<span id="cb15-55"><a href="#cb15-55"></a></span>
-<span id="cb15-58"><a href="#cb15-58"></a><span class="in">```{r}</span></span>
-<span id="cb15-59"><a href="#cb15-59"></a>chicago_neighborhood <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"https://data.cityofchicago.org/resource/igwz-8jzy.geojson"</span>)</span>
-<span id="cb15-60"><a href="#cb15-60"></a><span class="in">```</span></span>
-<span id="cb15-61"><a href="#cb15-61"></a></span>
-<span id="cb15-62"><a href="#cb15-62"></a><span class="in">```{r, fig.cap = "Arrests by Neighborhood Code"}</span></span>
-<span id="cb15-63"><a href="#cb15-63"></a><span class="in">arrests_sf &lt;- st_as_sf(arrests, coords = c("LONGITUDE", "LATITUDE"), crs = 4326)</span></span>
-<span id="cb15-64"><a href="#cb15-64"></a><span class="in">arrests_sf &lt;- st_transform(arrests_sf, st_crs(chicago_neighborhood))</span></span>
-<span id="cb15-65"><a href="#cb15-65"></a></span>
-<span id="cb15-66"><a href="#cb15-66"></a><span class="in">arrests_by_neighborhood &lt;-  arrests_sf |&gt;</span></span>
-<span id="cb15-67"><a href="#cb15-67"></a><span class="in">  st_join(chicago_neighborhood) |&gt;</span></span>
-<span id="cb15-68"><a href="#cb15-68"></a><span class="in">  count(community) </span></span>
-<span id="cb15-69"><a href="#cb15-69"></a></span>
-<span id="cb15-70"><a href="#cb15-70"></a><span class="in">arrests_by_neighborhood_no_geom &lt;- st_drop_geometry(arrests_by_neighborhood)</span></span>
-<span id="cb15-71"><a href="#cb15-71"></a></span>
-<span id="cb15-72"><a href="#cb15-72"></a><span class="in">chicago_with_arrests &lt;- chicago_neighborhood |&gt;</span></span>
-<span id="cb15-73"><a href="#cb15-73"></a><span class="in">  left_join(arrests_by_neighborhood_no_geom, by = "community")</span></span>
-<span id="cb15-74"><a href="#cb15-74"></a><span class="in">```</span></span>
-<span id="cb15-75"><a href="#cb15-75"></a></span>
-<span id="cb15-76"><a href="#cb15-76"></a><span class="in">```{r, fig.cap = "Arrests by Neighborhood"}</span></span>
-<span id="cb15-77"><a href="#cb15-77"></a><span class="in">#| fig-height: 8</span></span>
-<span id="cb15-78"><a href="#cb15-78"></a><span class="in">#| fig-width: 8</span></span>
-<span id="cb15-79"><a href="#cb15-79"></a><span class="in">#| fig-cap: The amount of arrests by Chicago neighborhood from 2014 to April 2025.  </span></span>
-<span id="cb15-80"><a href="#cb15-80"></a><span class="in">#| fig-alt: A choropleth map demonstrating the total number of arrests in each Chicago neighborhood, using metadata from 2014 through the beginning of April, 2025. It seems that the least number of arrests have taken place at the most northern and southern points of the city, with a count of approximately &gt;500. One neighborhood in the northwest of Chicago reached the highest number of arrests, at about 2000. </span></span>
-<span id="cb15-81"><a href="#cb15-81"></a></span>
-<span id="cb15-82"><a href="#cb15-82"></a><span class="in">ggplot(chicago_with_arrests) +</span></span>
-<span id="cb15-83"><a href="#cb15-83"></a><span class="in">  geom_sf(aes(fill = n)) +</span></span>
-<span id="cb15-84"><a href="#cb15-84"></a><span class="in">  scale_fill_viridis_c() +</span></span>
-<span id="cb15-85"><a href="#cb15-85"></a><span class="in">  labs(title = "Distribution of Arrests in Chicago by Neighborhood", </span></span>
-<span id="cb15-86"><a href="#cb15-86"></a><span class="in">       caption = "Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset") +</span></span>
-<span id="cb15-87"><a href="#cb15-87"></a><span class="in">  theme_void()</span></span>
-<span id="cb15-88"><a href="#cb15-88"></a><span class="in">```</span></span>
-<span id="cb15-89"><a href="#cb15-89"></a></span>
-<span id="cb15-90"><a href="#cb15-90"></a>Reflection: </span>
-<span id="cb15-91"><a href="#cb15-91"></a></span>
-<span id="cb15-92"><a href="#cb15-92"></a></span>
-<span id="cb15-93"><a href="#cb15-93"></a><span class="in">```{r, fig.cap = "Arrests by Race and Neighborhood Code"}</span></span>
-<span id="cb15-94"><a href="#cb15-94"></a></span>
-<span id="cb15-95"><a href="#cb15-95"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
-<span id="cb15-96"><a href="#cb15-96"></a><span class="in">  mutate(`RACE` = as.factor(`RACE`))</span></span>
-<span id="cb15-97"><a href="#cb15-97"></a></span>
-<span id="cb15-98"><a href="#cb15-98"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
-<span id="cb15-99"><a href="#cb15-99"></a><span class="in">  mutate(`RACE` = fct_recode(`RACE`, </span></span>
-<span id="cb15-100"><a href="#cb15-100"></a><span class="in">    "Black" = "BLACK",</span></span>
-<span id="cb15-101"><a href="#cb15-101"></a><span class="in">    "White" = "WHITE",</span></span>
-<span id="cb15-102"><a href="#cb15-102"></a><span class="in">    "White Hispanic" = "WHITE HISPANIC"</span></span>
-<span id="cb15-103"><a href="#cb15-103"></a><span class="in">  ))</span></span>
-<span id="cb15-104"><a href="#cb15-104"></a></span>
-<span id="cb15-105"><a href="#cb15-105"></a><span class="in">arrests_with_neighborhood &lt;- arrests_sf |&gt;</span></span>
-<span id="cb15-106"><a href="#cb15-106"></a><span class="in">  st_join(chicago_neighborhood)</span></span>
-<span id="cb15-107"><a href="#cb15-107"></a></span>
-<span id="cb15-108"><a href="#cb15-108"></a><span class="in">race_by_neighborhood &lt;- arrests_with_neighborhood |&gt;</span></span>
-<span id="cb15-109"><a href="#cb15-109"></a><span class="in">  st_drop_geometry() |&gt;</span></span>
-<span id="cb15-110"><a href="#cb15-110"></a><span class="in">  count(community, `RACE`) |&gt;</span></span>
-<span id="cb15-111"><a href="#cb15-111"></a><span class="in">  group_by(community) |&gt;</span></span>
-<span id="cb15-112"><a href="#cb15-112"></a><span class="in">  slice_max(n, n = 1, with_ties = FALSE) |&gt;</span></span>
-<span id="cb15-113"><a href="#cb15-113"></a><span class="in">  ungroup()</span></span>
-<span id="cb15-114"><a href="#cb15-114"></a></span>
-<span id="cb15-115"><a href="#cb15-115"></a><span class="in">chicago_race_map &lt;- chicago_neighborhood |&gt;</span></span>
-<span id="cb15-116"><a href="#cb15-116"></a><span class="in">  left_join(race_by_neighborhood, by = "community")</span></span>
-<span id="cb15-117"><a href="#cb15-117"></a><span class="in">```</span></span>
-<span id="cb15-118"><a href="#cb15-118"></a></span>
-<span id="cb15-119"><a href="#cb15-119"></a><span class="in">```{r, fig.cap = "Arrests by Race and Neighborhood"}</span></span>
-<span id="cb15-120"><a href="#cb15-120"></a><span class="in">#| fig-height: 8</span></span>
-<span id="cb15-121"><a href="#cb15-121"></a><span class="in">#| fig-width: 8</span></span>
-<span id="cb15-122"><a href="#cb15-122"></a><span class="in">#| fig-cap: Most commonly arrested race in each Chicago neighborhood.  </span></span>
-<span id="cb15-123"><a href="#cb15-123"></a><span class="in">#| fig-alt: A choropleth map demonstrating the most commonly arrested race by each neighborhood. Black people appear to be the most arrested in the majority of neighborhoods, followed by White Hispanic people and White people. Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination. </span></span>
-<span id="cb15-124"><a href="#cb15-124"></a><span class="in">ggplot(chicago_race_map) +</span></span>
-<span id="cb15-125"><a href="#cb15-125"></a><span class="in">  geom_sf(aes(fill = `RACE`)) +</span></span>
-<span id="cb15-126"><a href="#cb15-126"></a><span class="in">  scale_fill_viridis_d() +</span></span>
-<span id="cb15-127"><a href="#cb15-127"></a><span class="in">  labs(</span></span>
-<span id="cb15-128"><a href="#cb15-128"></a><span class="in">    title = "Most Commonly Race Arrested by Chicago Neighborhood",</span></span>
-<span id="cb15-129"><a href="#cb15-129"></a><span class="in">    caption = "Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset",</span></span>
-<span id="cb15-130"><a href="#cb15-130"></a><span class="in">    fill = "Race"</span></span>
-<span id="cb15-131"><a href="#cb15-131"></a><span class="in">  ) +</span></span>
-<span id="cb15-132"><a href="#cb15-132"></a><span class="in">  theme_map()</span></span>
-<span id="cb15-133"><a href="#cb15-133"></a><span class="in">```</span></span>
-<span id="cb15-134"><a href="#cb15-134"></a><span class="fu">## Reflection </span></span>
-<span id="cb15-135"><a href="#cb15-135"></a>Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination. It is clear that Black people are disproportionately arrested, as the majority of neighborhoods arrest Black people the most despite making up approximately 28% of the population. White Hispanic people were arrested the second most in Chicago neighborhoods, mostly on the West and Northwest parts of the city. White people were arrested the third most, and only in the Northwest area of Chicago. This choropleth map is only a beginning exploratory measure, and further analysis should be done to determine the intricacies of Chicago's racist behaviors. </span>
-<span id="cb15-136"><a href="#cb15-136"></a></span>
-<span id="cb15-139"><a href="#cb15-139"></a><span class="in">```{r}</span></span>
-<span id="cb15-140"><a href="#cb15-140"></a><span class="co"># arrests_sf |&gt; </span></span>
-<span id="cb15-141"><a href="#cb15-141"></a><span class="co">#  count(`CHARGES DESCRIPTION`, sort = TRUE) |&gt; </span></span>
-<span id="cb15-142"><a href="#cb15-142"></a><span class="co">#  head(20)</span></span>
-<span id="cb15-143"><a href="#cb15-143"></a><span class="in">```</span></span>
-<span id="cb15-144"><a href="#cb15-144"></a></span>
-<span id="cb15-145"><a href="#cb15-145"></a></span>
-<span id="cb15-146"><a href="#cb15-146"></a><span class="in">```{r, fig.cap = "Arrests by Race and Neighborhood Code"}</span></span>
-<span id="cb15-147"><a href="#cb15-147"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
-<span id="cb15-148"><a href="#cb15-148"></a><span class="in">  mutate(`CHARGES DESCRIPTION` = as.factor(`CHARGES DESCRIPTION`))</span></span>
-<span id="cb15-149"><a href="#cb15-149"></a></span>
-<span id="cb15-150"><a href="#cb15-150"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
-<span id="cb15-151"><a href="#cb15-151"></a><span class="in">  mutate(`CHARGES DESCRIPTION` = fct_recode(`CHARGES DESCRIPTION`, </span></span>
-<span id="cb15-152"><a href="#cb15-152"></a><span class="in">    "Battery (Physical Contact)" = "BATTERY - MAKE PHYSICAL CONTACT |  |  |",</span></span>
-<span id="cb15-153"><a href="#cb15-153"></a><span class="in">    "Obstructing Driver on Highway" = "CRIM TRESPASS TO STATE LAND | DISORDERLY CONDUCT - BREACH OF PEACE | IVC - OBSTRUCTING DRIVER ON HIGHWAY |",</span></span>
-<span id="cb15-154"><a href="#cb15-154"></a><span class="in">    "Criminal Trespass to Land" = "CRIMINAL TRESPASS TO LAND |  |  |",</span></span>
-<span id="cb15-155"><a href="#cb15-155"></a><span class="in">    "Domestic Battery (Bodily Harm)" = "DOMESTIC BATTERY/BODILY HARM |  |  |",</span></span>
-<span id="cb15-156"><a href="#cb15-156"></a><span class="in">    "Domestic Battery (Physical Contact)" = "DOMESTIC BTRY/PHYSICAL CONTACT |  |  |",</span></span>
-<span id="cb15-157"><a href="#cb15-157"></a><span class="in">    "Drug Possession" = "PCS - POSSESSION - POSS AMT CON SUB EXCEPT (A)(D) |  |  |",</span></span>
-<span id="cb15-158"><a href="#cb15-158"></a><span class="in">    "Prostitution" = "PROSTITUTION |  |  |",</span></span>
-<span id="cb15-159"><a href="#cb15-159"></a><span class="in">    "Retail Theft (&lt; $300)" = "RETAIL THEFT/DISP MERCH/&lt;$300 |  |  |",</span></span>
-<span id="cb15-160"><a href="#cb15-160"></a><span class="in">    "Violation of Protection Order" = "VIOLATE ORDER PROTECTION |  |  |"</span></span>
-<span id="cb15-161"><a href="#cb15-161"></a><span class="in">  ))</span></span>
-<span id="cb15-162"><a href="#cb15-162"></a></span>
-<span id="cb15-163"><a href="#cb15-163"></a><span class="in">charges_by_neighborhood &lt;- arrests_sf |&gt;</span></span>
-<span id="cb15-164"><a href="#cb15-164"></a><span class="in">  st_join(chicago_neighborhood) |&gt;</span></span>
-<span id="cb15-165"><a href="#cb15-165"></a><span class="in">  st_drop_geometry() |&gt;</span></span>
-<span id="cb15-166"><a href="#cb15-166"></a><span class="in">  count(community, `CHARGES DESCRIPTION`) |&gt;</span></span>
-<span id="cb15-167"><a href="#cb15-167"></a><span class="in">  group_by(community) |&gt;</span></span>
-<span id="cb15-168"><a href="#cb15-168"></a><span class="in">  slice_max(n, n = 1, with_ties = FALSE) |&gt;  </span></span>
-<span id="cb15-169"><a href="#cb15-169"></a><span class="in">  ungroup()</span></span>
-<span id="cb15-170"><a href="#cb15-170"></a></span>
-<span id="cb15-171"><a href="#cb15-171"></a><span class="in">chicago_charges_map &lt;- chicago_neighborhood |&gt;</span></span>
-<span id="cb15-172"><a href="#cb15-172"></a><span class="in">  left_join(charges_by_neighborhood, by = "community") </span></span>
-<span id="cb15-173"><a href="#cb15-173"></a><span class="in">```</span></span>
-<span id="cb15-174"><a href="#cb15-174"></a></span>
-<span id="cb15-175"><a href="#cb15-175"></a><span class="in">```{r, fig.cap = "Arrests by Charge Type and Neighborhood"}</span></span>
-<span id="cb15-176"><a href="#cb15-176"></a><span class="in">#| fig-height: 9</span></span>
-<span id="cb15-177"><a href="#cb15-177"></a><span class="in">#| fig-width: 9</span></span>
-<span id="cb15-178"><a href="#cb15-178"></a><span class="in">#| fig-cap: Choropleth map of the most common charge description within each Chicago neighborhood.  </span></span>
-<span id="cb15-179"><a href="#cb15-179"></a><span class="in">#| fig-alt: A choropleth map to compare the charge descriptions of each Chicago neighborhood. It looks as if Domestic Battery (Bodily Harm) is the most common and spread out charge, while Retail Theft (&gt;$300) is the next most common charge description, although it is mostly concentrated in the northeast of Chicago. There are nine charge descriptions total, which reflect the most common types of crimes of each neighborhood, although the other seven charges are only the most common in one or so neighborhoods. </span></span>
-<span id="cb15-180"><a href="#cb15-180"></a><span class="in">ggplot(chicago_charges_map) +</span></span>
-<span id="cb15-181"><a href="#cb15-181"></a><span class="in">  geom_sf(aes(fill = `CHARGES DESCRIPTION`)) +</span></span>
-<span id="cb15-182"><a href="#cb15-182"></a><span class="in">  scale_fill_viridis_d() +</span></span>
-<span id="cb15-183"><a href="#cb15-183"></a><span class="in">  labs(</span></span>
-<span id="cb15-184"><a href="#cb15-184"></a><span class="in">    title = "Most Common Charges by Chicago Neighborhood",</span></span>
-<span id="cb15-185"><a href="#cb15-185"></a><span class="in">    caption = "Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset",</span></span>
-<span id="cb15-186"><a href="#cb15-186"></a><span class="in">    fill = "Charge"</span></span>
-<span id="cb15-187"><a href="#cb15-187"></a><span class="in">  ) +</span></span>
-<span id="cb15-188"><a href="#cb15-188"></a><span class="in">  theme_map()</span></span>
-<span id="cb15-189"><a href="#cb15-189"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="an">title:</span><span class="co"> "Solo Project"</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="an">execute:</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co">  echo: true</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">  warning: false</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">  error: false</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">  code-fold: true</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">---</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="in">```{r}</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="co"># Load packages. </span></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-15"><a href="#cb13-15"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="fu">library</span>(sf)</span>
+<span id="cb13-17"><a href="#cb13-17"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="fu">library</span>(maps)</span>
+<span id="cb13-20"><a href="#cb13-20"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb13-21"><a href="#cb13-21"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb13-22"><a href="#cb13-22"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb13-23"><a href="#cb13-23"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb13-24"><a href="#cb13-24"></a><span class="fu">library</span>(tigris)</span>
+<span id="cb13-25"><a href="#cb13-25"></a><span class="in">```</span></span>
+<span id="cb13-26"><a href="#cb13-26"></a></span>
+<span id="cb13-27"><a href="#cb13-27"></a></span>
+<span id="cb13-28"><a href="#cb13-28"></a></span>
+<span id="cb13-31"><a href="#cb13-31"></a><span class="in">```{r}</span></span>
+<span id="cb13-32"><a href="#cb13-32"></a>arrests_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Arrests_20250414.csv"</span>)</span>
+<span id="cb13-33"><a href="#cb13-33"></a><span class="co"># head(arrests_data)</span></span>
+<span id="cb13-34"><a href="#cb13-34"></a></span>
+<span id="cb13-35"><a href="#cb13-35"></a>arrests_map <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/Crimes_-_One_year_prior_to_present_20250421.csv"</span>)</span>
+<span id="cb13-36"><a href="#cb13-36"></a><span class="co"># head(arrests_map)</span></span>
+<span id="cb13-37"><a href="#cb13-37"></a><span class="in">```</span></span>
+<span id="cb13-38"><a href="#cb13-38"></a></span>
+<span id="cb13-39"><a href="#cb13-39"></a></span>
+<span id="cb13-40"><a href="#cb13-40"></a></span>
+<span id="cb13-43"><a href="#cb13-43"></a><span class="in">```{r}</span></span>
+<span id="cb13-44"><a href="#cb13-44"></a>arrests <span class="ot">&lt;-</span> arrests_map <span class="sc">|&gt;</span></span>
+<span id="cb13-45"><a href="#cb13-45"></a>  <span class="fu">semi_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span>
+<span id="cb13-46"><a href="#cb13-46"></a></span>
+<span id="cb13-47"><a href="#cb13-47"></a>arrests <span class="ot">&lt;-</span> arrests <span class="sc">|&gt;</span></span>
+<span id="cb13-48"><a href="#cb13-48"></a>  <span class="fu">left_join</span>(arrests_data, <span class="fu">join_by</span>(<span class="st">`</span><span class="at">CASE#</span><span class="st">`</span> <span class="sc">==</span> <span class="st">`</span><span class="at">CASE NUMBER</span><span class="st">`</span>))</span>
+<span id="cb13-49"><a href="#cb13-49"></a><span class="in">```</span></span>
+<span id="cb13-50"><a href="#cb13-50"></a></span>
+<span id="cb13-53"><a href="#cb13-53"></a><span class="in">```{r}</span></span>
+<span id="cb13-54"><a href="#cb13-54"></a>chicago_neighborhood <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"https://data.cityofchicago.org/resource/igwz-8jzy.geojson"</span>)</span>
+<span id="cb13-55"><a href="#cb13-55"></a><span class="in">```</span></span>
+<span id="cb13-56"><a href="#cb13-56"></a></span>
+<span id="cb13-57"><a href="#cb13-57"></a><span class="in">```{r, fig.cap = "Arrests by Neighborhood Code"}</span></span>
+<span id="cb13-58"><a href="#cb13-58"></a><span class="in">arrests_sf &lt;- st_as_sf(arrests, coords = c("LONGITUDE", "LATITUDE"), crs = 4326)</span></span>
+<span id="cb13-59"><a href="#cb13-59"></a><span class="in">arrests_sf &lt;- st_transform(arrests_sf, st_crs(chicago_neighborhood))</span></span>
+<span id="cb13-60"><a href="#cb13-60"></a></span>
+<span id="cb13-61"><a href="#cb13-61"></a><span class="in">arrests_by_neighborhood &lt;-  arrests_sf |&gt;</span></span>
+<span id="cb13-62"><a href="#cb13-62"></a><span class="in">  st_join(chicago_neighborhood) |&gt;</span></span>
+<span id="cb13-63"><a href="#cb13-63"></a><span class="in">  count(community) </span></span>
+<span id="cb13-64"><a href="#cb13-64"></a></span>
+<span id="cb13-65"><a href="#cb13-65"></a><span class="in">arrests_by_neighborhood_no_geom &lt;- st_drop_geometry(arrests_by_neighborhood)</span></span>
+<span id="cb13-66"><a href="#cb13-66"></a></span>
+<span id="cb13-67"><a href="#cb13-67"></a><span class="in">chicago_with_arrests &lt;- chicago_neighborhood |&gt;</span></span>
+<span id="cb13-68"><a href="#cb13-68"></a><span class="in">  left_join(arrests_by_neighborhood_no_geom, by = "community")</span></span>
+<span id="cb13-69"><a href="#cb13-69"></a><span class="in">```</span></span>
+<span id="cb13-70"><a href="#cb13-70"></a></span>
+<span id="cb13-71"><a href="#cb13-71"></a><span class="in">```{r, fig.cap = "Arrests by Neighborhood"}</span></span>
+<span id="cb13-72"><a href="#cb13-72"></a><span class="in">#| fig-height: 8</span></span>
+<span id="cb13-73"><a href="#cb13-73"></a><span class="in">#| fig-width: 8</span></span>
+<span id="cb13-74"><a href="#cb13-74"></a><span class="in">#| fig-cap: The amount of arrests by Chicago neighborhood from 2014 to April 2025.  </span></span>
+<span id="cb13-75"><a href="#cb13-75"></a><span class="in">#| fig-alt: A choropleth map demonstrating the total number of arrests in each Chicago neighborhood, using metadata from 2014 through the beginning of April, 2025. It seems that the least number of arrests have taken place at the most northern and southern points of the city, with a count of approximately &gt;500. One neighborhood in the northwest of Chicago reached the highest number of arrests, at about 2000. </span></span>
+<span id="cb13-76"><a href="#cb13-76"></a></span>
+<span id="cb13-77"><a href="#cb13-77"></a><span class="in">ggplot(chicago_with_arrests) +</span></span>
+<span id="cb13-78"><a href="#cb13-78"></a><span class="in">  geom_sf(aes(fill = n)) +</span></span>
+<span id="cb13-79"><a href="#cb13-79"></a><span class="in">  scale_fill_viridis_c() +</span></span>
+<span id="cb13-80"><a href="#cb13-80"></a><span class="in">  labs(title = "Distribution of Arrests in Chicago by Neighborhood", </span></span>
+<span id="cb13-81"><a href="#cb13-81"></a><span class="in">       caption = "Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset") +</span></span>
+<span id="cb13-82"><a href="#cb13-82"></a><span class="in">  theme_void()</span></span>
+<span id="cb13-83"><a href="#cb13-83"></a><span class="in">```</span></span>
+<span id="cb13-84"><a href="#cb13-84"></a></span>
+<span id="cb13-85"><a href="#cb13-85"></a>Reflection: </span>
+<span id="cb13-86"><a href="#cb13-86"></a></span>
+<span id="cb13-87"><a href="#cb13-87"></a></span>
+<span id="cb13-88"><a href="#cb13-88"></a><span class="in">```{r, fig.cap = "Arrests by Race and Neighborhood Code"}</span></span>
+<span id="cb13-89"><a href="#cb13-89"></a></span>
+<span id="cb13-90"><a href="#cb13-90"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
+<span id="cb13-91"><a href="#cb13-91"></a><span class="in">  mutate(`RACE` = as.factor(`RACE`))</span></span>
+<span id="cb13-92"><a href="#cb13-92"></a></span>
+<span id="cb13-93"><a href="#cb13-93"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
+<span id="cb13-94"><a href="#cb13-94"></a><span class="in">  mutate(`RACE` = fct_recode(`RACE`, </span></span>
+<span id="cb13-95"><a href="#cb13-95"></a><span class="in">    "Black" = "BLACK",</span></span>
+<span id="cb13-96"><a href="#cb13-96"></a><span class="in">    "White" = "WHITE",</span></span>
+<span id="cb13-97"><a href="#cb13-97"></a><span class="in">    "White Hispanic" = "WHITE HISPANIC"</span></span>
+<span id="cb13-98"><a href="#cb13-98"></a><span class="in">  ))</span></span>
+<span id="cb13-99"><a href="#cb13-99"></a></span>
+<span id="cb13-100"><a href="#cb13-100"></a><span class="in">arrests_with_neighborhood &lt;- arrests_sf |&gt;</span></span>
+<span id="cb13-101"><a href="#cb13-101"></a><span class="in">  st_join(chicago_neighborhood)</span></span>
+<span id="cb13-102"><a href="#cb13-102"></a></span>
+<span id="cb13-103"><a href="#cb13-103"></a><span class="in">race_by_neighborhood &lt;- arrests_with_neighborhood |&gt;</span></span>
+<span id="cb13-104"><a href="#cb13-104"></a><span class="in">  st_drop_geometry() |&gt;</span></span>
+<span id="cb13-105"><a href="#cb13-105"></a><span class="in">  count(community, `RACE`) |&gt;</span></span>
+<span id="cb13-106"><a href="#cb13-106"></a><span class="in">  group_by(community) |&gt;</span></span>
+<span id="cb13-107"><a href="#cb13-107"></a><span class="in">  slice_max(n, n = 1, with_ties = FALSE) |&gt;</span></span>
+<span id="cb13-108"><a href="#cb13-108"></a><span class="in">  ungroup()</span></span>
+<span id="cb13-109"><a href="#cb13-109"></a></span>
+<span id="cb13-110"><a href="#cb13-110"></a><span class="in">chicago_race_map &lt;- chicago_neighborhood |&gt;</span></span>
+<span id="cb13-111"><a href="#cb13-111"></a><span class="in">  left_join(race_by_neighborhood, by = "community")</span></span>
+<span id="cb13-112"><a href="#cb13-112"></a><span class="in">```</span></span>
+<span id="cb13-113"><a href="#cb13-113"></a></span>
+<span id="cb13-114"><a href="#cb13-114"></a><span class="in">```{r, fig.cap = "Arrests by Race and Neighborhood"}</span></span>
+<span id="cb13-115"><a href="#cb13-115"></a><span class="in">#| fig-height: 8</span></span>
+<span id="cb13-116"><a href="#cb13-116"></a><span class="in">#| fig-width: 8</span></span>
+<span id="cb13-117"><a href="#cb13-117"></a><span class="in">#| fig-cap: Most commonly arrested race in each Chicago neighborhood.  </span></span>
+<span id="cb13-118"><a href="#cb13-118"></a><span class="in">#| fig-alt: A choropleth map demonstrating the most commonly arrested race by each neighborhood. Black people appear to be the most arrested in the majority of neighborhoods, followed by White Hispanic people and White people. Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination. </span></span>
+<span id="cb13-119"><a href="#cb13-119"></a><span class="in">ggplot(chicago_race_map) +</span></span>
+<span id="cb13-120"><a href="#cb13-120"></a><span class="in">  geom_sf(aes(fill = `RACE`)) +</span></span>
+<span id="cb13-121"><a href="#cb13-121"></a><span class="in">  scale_fill_viridis_d() +</span></span>
+<span id="cb13-122"><a href="#cb13-122"></a><span class="in">  labs(</span></span>
+<span id="cb13-123"><a href="#cb13-123"></a><span class="in">    title = "Most Commonly Race Arrested by Chicago Neighborhood",</span></span>
+<span id="cb13-124"><a href="#cb13-124"></a><span class="in">    caption = "Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset",</span></span>
+<span id="cb13-125"><a href="#cb13-125"></a><span class="in">    fill = "Race"</span></span>
+<span id="cb13-126"><a href="#cb13-126"></a><span class="in">  ) +</span></span>
+<span id="cb13-127"><a href="#cb13-127"></a><span class="in">  theme_map()</span></span>
+<span id="cb13-128"><a href="#cb13-128"></a><span class="in">```</span></span>
+<span id="cb13-129"><a href="#cb13-129"></a><span class="fu">## Reflection </span></span>
+<span id="cb13-130"><a href="#cb13-130"></a>Chicago has a long history of racism and segregation, and this choropleth map intended to explore the concrete effects of such historical and institutional discrimination. It is clear that Black people are disproportionately arrested, as the majority of neighborhoods arrest Black people the most despite making up approximately 28% of the population. White Hispanic people were arrested the second most in Chicago neighborhoods, mostly on the West and Northwest parts of the city. White people were arrested the third most, and only in the Northwest area of Chicago. This choropleth map is only a beginning exploratory measure, and further analysis should be done to determine the intricacies of Chicago's racist behaviors. </span>
+<span id="cb13-131"><a href="#cb13-131"></a></span>
+<span id="cb13-134"><a href="#cb13-134"></a><span class="in">```{r}</span></span>
+<span id="cb13-135"><a href="#cb13-135"></a><span class="co"># arrests_sf |&gt; </span></span>
+<span id="cb13-136"><a href="#cb13-136"></a><span class="co">#  count(`CHARGES DESCRIPTION`, sort = TRUE) |&gt; </span></span>
+<span id="cb13-137"><a href="#cb13-137"></a><span class="co">#  head(20)</span></span>
+<span id="cb13-138"><a href="#cb13-138"></a><span class="in">```</span></span>
+<span id="cb13-139"><a href="#cb13-139"></a></span>
+<span id="cb13-140"><a href="#cb13-140"></a></span>
+<span id="cb13-141"><a href="#cb13-141"></a><span class="in">```{r, fig.cap = "Arrests by Race and Neighborhood Code"}</span></span>
+<span id="cb13-142"><a href="#cb13-142"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
+<span id="cb13-143"><a href="#cb13-143"></a><span class="in">  mutate(`CHARGES DESCRIPTION` = as.factor(`CHARGES DESCRIPTION`))</span></span>
+<span id="cb13-144"><a href="#cb13-144"></a></span>
+<span id="cb13-145"><a href="#cb13-145"></a><span class="in">arrests_sf &lt;- arrests_sf |&gt; </span></span>
+<span id="cb13-146"><a href="#cb13-146"></a><span class="in">  mutate(`CHARGES DESCRIPTION` = fct_recode(`CHARGES DESCRIPTION`, </span></span>
+<span id="cb13-147"><a href="#cb13-147"></a><span class="in">    "Battery (Physical Contact)" = "BATTERY - MAKE PHYSICAL CONTACT |  |  |",</span></span>
+<span id="cb13-148"><a href="#cb13-148"></a><span class="in">    "Obstructing Driver on Highway" = "CRIM TRESPASS TO STATE LAND | DISORDERLY CONDUCT - BREACH OF PEACE | IVC - OBSTRUCTING DRIVER ON HIGHWAY |",</span></span>
+<span id="cb13-149"><a href="#cb13-149"></a><span class="in">    "Criminal Trespass to Land" = "CRIMINAL TRESPASS TO LAND |  |  |",</span></span>
+<span id="cb13-150"><a href="#cb13-150"></a><span class="in">    "Domestic Battery (Bodily Harm)" = "DOMESTIC BATTERY/BODILY HARM |  |  |",</span></span>
+<span id="cb13-151"><a href="#cb13-151"></a><span class="in">    "Domestic Battery (Physical Contact)" = "DOMESTIC BTRY/PHYSICAL CONTACT |  |  |",</span></span>
+<span id="cb13-152"><a href="#cb13-152"></a><span class="in">    "Drug Possession" = "PCS - POSSESSION - POSS AMT CON SUB EXCEPT (A)(D) |  |  |",</span></span>
+<span id="cb13-153"><a href="#cb13-153"></a><span class="in">    "Prostitution" = "PROSTITUTION |  |  |",</span></span>
+<span id="cb13-154"><a href="#cb13-154"></a><span class="in">    "Retail Theft (&lt; $300)" = "RETAIL THEFT/DISP MERCH/&lt;$300 |  |  |",</span></span>
+<span id="cb13-155"><a href="#cb13-155"></a><span class="in">    "Violation of Protection Order" = "VIOLATE ORDER PROTECTION |  |  |"</span></span>
+<span id="cb13-156"><a href="#cb13-156"></a><span class="in">  ))</span></span>
+<span id="cb13-157"><a href="#cb13-157"></a></span>
+<span id="cb13-158"><a href="#cb13-158"></a><span class="in">charges_by_neighborhood &lt;- arrests_sf |&gt;</span></span>
+<span id="cb13-159"><a href="#cb13-159"></a><span class="in">  st_join(chicago_neighborhood) |&gt;</span></span>
+<span id="cb13-160"><a href="#cb13-160"></a><span class="in">  st_drop_geometry() |&gt;</span></span>
+<span id="cb13-161"><a href="#cb13-161"></a><span class="in">  count(community, `CHARGES DESCRIPTION`) |&gt;</span></span>
+<span id="cb13-162"><a href="#cb13-162"></a><span class="in">  group_by(community) |&gt;</span></span>
+<span id="cb13-163"><a href="#cb13-163"></a><span class="in">  slice_max(n, n = 1, with_ties = FALSE) |&gt;  </span></span>
+<span id="cb13-164"><a href="#cb13-164"></a><span class="in">  ungroup()</span></span>
+<span id="cb13-165"><a href="#cb13-165"></a></span>
+<span id="cb13-166"><a href="#cb13-166"></a><span class="in">chicago_charges_map &lt;- chicago_neighborhood |&gt;</span></span>
+<span id="cb13-167"><a href="#cb13-167"></a><span class="in">  left_join(charges_by_neighborhood, by = "community") </span></span>
+<span id="cb13-168"><a href="#cb13-168"></a><span class="in">```</span></span>
+<span id="cb13-169"><a href="#cb13-169"></a></span>
+<span id="cb13-170"><a href="#cb13-170"></a><span class="in">```{r, fig.cap = "Arrests by Charge Type and Neighborhood"}</span></span>
+<span id="cb13-171"><a href="#cb13-171"></a><span class="in">#| fig-height: 9</span></span>
+<span id="cb13-172"><a href="#cb13-172"></a><span class="in">#| fig-width: 9</span></span>
+<span id="cb13-173"><a href="#cb13-173"></a><span class="in">#| fig-cap: Choropleth map of the most common charge description within each Chicago neighborhood.  </span></span>
+<span id="cb13-174"><a href="#cb13-174"></a><span class="in">#| fig-alt: A choropleth map to compare the charge descriptions of each Chicago neighborhood. It looks as if Domestic Battery (Bodily Harm) is the most common and spread out charge, while Retail Theft (&gt;$300) is the next most common charge description, although it is mostly concentrated in the northeast of Chicago. There are nine charge descriptions total, which reflect the most common types of crimes of each neighborhood, although the other seven charges are only the most common in one or so neighborhoods. </span></span>
+<span id="cb13-175"><a href="#cb13-175"></a><span class="in">ggplot(chicago_charges_map) +</span></span>
+<span id="cb13-176"><a href="#cb13-176"></a><span class="in">  geom_sf(aes(fill = `CHARGES DESCRIPTION`)) +</span></span>
+<span id="cb13-177"><a href="#cb13-177"></a><span class="in">  scale_fill_viridis_d() +</span></span>
+<span id="cb13-178"><a href="#cb13-178"></a><span class="in">  labs(</span></span>
+<span id="cb13-179"><a href="#cb13-179"></a><span class="in">    title = "Most Common Charges by Chicago Neighborhood",</span></span>
+<span id="cb13-180"><a href="#cb13-180"></a><span class="in">    caption = "Source: Chicago Police Department 'Arrests' dataset and 'Crimes - 2001 to Present' dataset",</span></span>
+<span id="cb13-181"><a href="#cb13-181"></a><span class="in">    fill = "Charge"</span></span>
+<span id="cb13-182"><a href="#cb13-182"></a><span class="in">  ) +</span></span>
+<span id="cb13-183"><a href="#cb13-183"></a><span class="in">  theme_map()</span></span>
+<span id="cb13-184"><a href="#cb13-184"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

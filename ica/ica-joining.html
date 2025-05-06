@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>COMP/STAT112 Notebook - 17&nbsp; Joining</title>
+<title>COMP/STAT112 Notebook - 18&nbsp; Joining</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -185,6 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../bw/exam-two.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exam 2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bw/solo-project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solo Project</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -294,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
 <li><a href="#example-1" id="toc-example-1" class="nav-link active" data-scroll-target="#example-1">Example 1</a></li>
   <li>
-<a href="#mutating-joins-left-inner-full" id="toc-mutating-joins-left-inner-full" class="nav-link" data-scroll-target="#mutating-joins-left-inner-full"><span class="header-section-number">17.1</span> Mutating Joins: <code>left</code>, <code>inner</code>, <code>full</code></a>
+<a href="#mutating-joins-left-inner-full" id="toc-mutating-joins-left-inner-full" class="nav-link" data-scroll-target="#mutating-joins-left-inner-full"><span class="header-section-number">18.1</span> Mutating Joins: <code>left</code>, <code>inner</code>, <code>full</code></a>
   <ul class="collapse">
 <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
   <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
@@ -302,15 +307,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li>
-<a href="#filtering-joins-semi-anti" id="toc-filtering-joins-semi-anti" class="nav-link" data-scroll-target="#filtering-joins-semi-anti"><span class="header-section-number">17.2</span> Filtering Joins: <code>semi</code>, <code>anti</code></a>
+<a href="#filtering-joins-semi-anti" id="toc-filtering-joins-semi-anti" class="nav-link" data-scroll-target="#filtering-joins-semi-anti"><span class="header-section-number">18.2</span> Filtering Joins: <code>semi</code>, <code>anti</code></a>
   <ul class="collapse">
 <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example 5</a></li>
   <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example 6</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">17.2.1</span> Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">18.2.1</span> Summary</a></li>
   </ul>
 </li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">17.3</span> Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">18.3</span> Exercises</a>
   <ul class="collapse">
 <li><a href="#exercise-1-where-are-my-keys" id="toc-exercise-1-where-are-my-keys" class="nav-link" data-scroll-target="#exercise-1-where-are-my-keys">Exercise 1: Where are my keys?</a></li>
   <li><a href="#exercise-2-more-small-practice" id="toc-exercise-2-more-small-practice" class="nav-link" data-scroll-target="#exercise-2-more-small-practice">Exercise 2: More small practice</a></li>
@@ -399,8 +404,8 @@ Learning Goals
 <li>Relative to this key, what info does <code>enrollments_1</code> have that <code>students_1</code> doesn’t?</li>
 <li>
 <code>enrollments_1</code> has ART 101.</li>
-</ul></section><section id="mutating-joins-left-inner-full" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="mutating-joins-left-inner-full">
-<span class="header-section-number">17.1</span> Mutating Joins: <code>left</code>, <code>inner</code>, <code>full</code>
+</ul></section><section id="mutating-joins-left-inner-full" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="mutating-joins-left-inner-full">
+<span class="header-section-number">18.1</span> Mutating Joins: <code>left</code>, <code>inner</code>, <code>full</code>
 </h2>
 <section id="example-2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="example-2">Example 2</h3>
 <p>There are various ways to join these datasets:</p>
@@ -489,8 +494,8 @@ Learning Goals
 4 ANTH 101         NA       C</code></pre>
 </div>
 </div>
-</section></section><section id="filtering-joins-semi-anti" class="level2" data-number="17.2"><h2 data-number="17.2" class="anchored" data-anchor-id="filtering-joins-semi-anti">
-<span class="header-section-number">17.2</span> Filtering Joins: <code>semi</code>, <code>anti</code>
+</section></section><section id="filtering-joins-semi-anti" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="filtering-joins-semi-anti">
+<span class="header-section-number">18.2</span> Filtering Joins: <code>semi</code>, <code>anti</code>
 </h2>
 <p><em>Mutating</em> joins <em>combine</em> information, thus increase the number of columns in a dataset (like <code>mutate()</code>). <em>Filtering</em> joins keep only certain observations in one dataset (like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>), not based on rules related to any variables in the dataset, but on the observations that exist in another dataset. This is useful when we merely care about the membership or non-membership of an observation in the other dataset, not the raw data itself.</p>
 <section id="example-5" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="example-5">Example 5</h3>
@@ -545,16 +550,16 @@ Learning Goals
 1 ART 101         17</code></pre>
 </div>
 </div>
-</section><section id="summary" class="level3" data-number="17.2.1"><h3 data-number="17.2.1" class="anchored" data-anchor-id="summary">
-<span class="header-section-number">17.2.1</span> Summary</h3>
+</section><section id="summary" class="level3" data-number="18.2.1"><h3 data-number="18.2.1" class="anchored" data-anchor-id="summary">
+<span class="header-section-number">18.2.1</span> Summary</h3>
 <p>Filtering joins keep specific observations from the left table based on whether they match an observation in the right table.</p>
 <ul>
 <li><p><code>semi_join()</code><br>
 Discards any observations in the left table that <em>do not</em> have a match in the right table. If there are multiple matches of right cases to a left case, it keeps just one copy of the left case.</p></li>
 <li><p><code>anti_join()</code><br>
 Discards any observations in the left table that <em>do</em> have a match in the right table.</p></li>
-</ul></section></section><section id="exercises" class="level2" data-number="17.3"><h2 data-number="17.3" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">17.3</span> Exercises</h2>
+</ul></section></section><section id="exercises" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">18.3</span> Exercises</h2>
 <section id="exercise-1-where-are-my-keys" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-1-where-are-my-keys">Exercise 1: Where are my keys?</h3>
 <section id="part-a" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-a">Part a</h4>
 <p>Define two new datasets, with different students and courses:</p>

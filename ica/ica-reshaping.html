@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>COMP/STAT112 Notebook - 16&nbsp; Reshaping</title>
+<title>COMP/STAT112 Notebook - 17&nbsp; Reshaping</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -185,6 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../bw/exam-two.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exam 2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bw/solo-project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solo Project</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -293,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#review" id="toc-review" class="nav-link active" data-scroll-target="#review"><span class="header-section-number">16.1</span> Review</a>
+<a href="#review" id="toc-review" class="nav-link active" data-scroll-target="#review"><span class="header-section-number">17.1</span> Review</a>
   <ul class="collapse">
 <li><a href="#example-1-warm-up-counts-and-proportions" id="toc-example-1-warm-up-counts-and-proportions" class="nav-link" data-scroll-target="#example-1-warm-up-counts-and-proportions">EXAMPLE 1: warm-up counts and proportions</a></li>
   <li><a href="#example-2-new-data" id="toc-example-2-new-data" class="nav-link" data-scroll-target="#example-2-new-data">EXAMPLE 2: New data</a></li>
@@ -301,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li>
-<a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"><span class="header-section-number">16.2</span> Reshaping Data</a>
+<a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"><span class="header-section-number">17.2</span> Reshaping Data</a>
   <ul class="collapse">
 <li><a href="#example-4-reshape-it-with-your-mind" id="toc-example-4-reshape-it-with-your-mind" class="nav-link" data-scroll-target="#example-4-reshape-it-with-your-mind">EXAMPLE 4: reshape it with your mind</a></li>
   <li><a href="#wider-vs-longer-formats" id="toc-wider-vs-longer-formats" class="nav-link" data-scroll-target="#wider-vs-longer-formats">Wider vs Longer formats</a></li>
@@ -311,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">16.3</span> Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">17.3</span> Exercises</a>
   <ul class="collapse">
 <li><a href="#exercise-1-whats-the-problem" id="toc-exercise-1-whats-the-problem" class="nav-link" data-scroll-target="#exercise-1-whats-the-problem">Exercise 1: What’s the problem?</a></li>
   <li><a href="#exercise-2-pivot-longer" id="toc-exercise-2-pivot-longer" class="nav-link" data-scroll-target="#exercise-2-pivot-longer">Exercise 2: Pivot longer</a></li>
@@ -339,8 +344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="review" class="level2" data-number="16.1"><h2 data-number="16.1" class="anchored" data-anchor-id="review">
-<span class="header-section-number">16.1</span> Review</h2>
+</header><section id="review" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="review">
+<span class="header-section-number">17.1</span> Review</h2>
 <section id="example-1-warm-up-counts-and-proportions" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="example-1-warm-up-counts-and-proportions">EXAMPLE 1: warm-up counts and proportions</h3>
 <p>Recall the <code>penguins</code> we worked with last class:</p>
 <div class="cell">
@@ -486,8 +491,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ol start="2" type="1">
 <li>Did the reshaping process result in any information loss from the original data? We lost all of the other columns of data when we reshapped. The new dataset only kept species, sex, and avg_body_mass.</li>
-</ol></section></section><section id="reshaping-data" class="level2" data-number="16.2"><h2 data-number="16.2" class="anchored" data-anchor-id="reshaping-data">
-<span class="header-section-number">16.2</span> Reshaping Data</h2>
+</ol></section></section><section id="reshaping-data" class="level2" data-number="17.2"><h2 data-number="17.2" class="anchored" data-anchor-id="reshaping-data">
+<span class="header-section-number">17.2</span> Reshaping Data</h2>
 <p>There are two general types of reshaped data:</p>
 <ul>
 <li><p><em>aggregate</em> data<br>
@@ -680,8 +685,8 @@ We often want to retain all information on individual observations, but need to 
 6 D        DunnBros     coffee  </code></pre>
 </div>
 </div>
-</section></section><section id="exercises" class="level2" data-number="16.3"><h2 data-number="16.3" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">16.3</span> Exercises</h2>
+</section></section><section id="exercises" class="level2" data-number="17.3"><h2 data-number="17.3" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">17.3</span> Exercises</h2>
 <section id="exercise-1-whats-the-problem" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-1-whats-the-problem">Exercise 1: What’s the problem?</h3>
 <p>Consider data on a sleep study in which subjects received only 3 hours of sleep per night. Each day, their reaction time to a stimulus (in ms) was recorded.</p>
 <div class="cell">
